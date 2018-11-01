@@ -1,0 +1,40 @@
+
+.head{
+    width: 90%;
+    margin: 0 auto;
+}
+.head .logo{
+    background: url(../images/logo_school.png) no-repeat left top;
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+}
+.head h2{
+    display: inline-block;
+    font-size: 1.5em;
+    height: 50px;
+    line-height: 50px;
+    font-family: "宋体";
+    color: #0050D0;
+}
+.head .info{
+    background-color: #e0e0e0;
+    float: right;
+    border-radius: 5px;
+    padding-right: 20px;
+}
+.head .info ul li{
+    list-style: none;
+    float: left;
+    font-size: 14px;
+    position: relative;
+}
+.head .info ul li a{
+    text-decoration: none;
+    margin-left: 10px;
+}
+.head .info ul li a:hover{
+    background-color: blue;
+    color: white;
+}

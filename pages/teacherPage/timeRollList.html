@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>courseRollList</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
+    <script src="../../plugins/jquery-2.2.3.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script>
+
+    <link rel="stylesheet" href="../../css/form.css">
+    <link rel="stylesheet" href="../../css/list.css">
+    <script type="text/javascript" src="../../js/teacher.js"></script>
+</head>
+<body>
+<input type="button" class="btn btn-default" id="checkedTime" value="查询时间" />
+<input type="button" class="btn btn-default" id="setTime" value="添加时间" />
+
+<div class="list-body" style="padding: 10px;border-top: 1px solid #ccc;">
+    <table id="table" class="table table-bordered">
+        <tr>
+            <th>序号</th>
+            <th>年级</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>类型</th>
+            <th>操作</th>
+        </tr>
+        <tbody class="tbBody"></tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+.content{
+    width: 90%;
+    margin: 0 auto;
+}
+#superManagerInfo,#manageCollege,#manageTeacher,#manageStudent,#manager,#allClass_info,#allStudent_info,#allTeacher_info,#allManager_info,#logClass,
+#logStudent_info,#logTeacher_info,#logManager_info,#modify_password,#delSuperManager{
+    margin: 10px 30px 10px 50px;
+}
+.all_info{
+    width: 90%;
+    margin: 0 auto;
+    border-top: 1px solid #ccc;
+    clear: both;
+}
+.all_info  .change_info{
+    width: 60px;
+    color: red;
+    float: right;
+    margin: 10px 10px 0 0;
+    padding-left: 30px;
+    background: white url("../images/settings.jpg") no-repeat left center;
+    cursor: pointer;
+}
+
+a{
+    cursor: pointer;
+}
+.all_info  .change_info:hover{
+    text-decoration: underline;
+}
+
+

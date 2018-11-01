@@ -1,0 +1,33 @@
+
+.content{
+    width: 90%;
+    margin: 0 auto;
+}
+#teacherInfo,#studentManage,#courseManage,#timeSet,#student_info,#allCourse_info,#addCourse,
+#selectedCourse_set,#droppedCourse_set,#checkedTime,#setTime,#addStudent_info,#modify_password,#studentChoice,
+#studentCourse,#addStudentCourse{
+    margin: 10px 30px 20px 50px;
+}
+.all_info{
+    width: 90%;
+    margin: 0 auto;
+    height: 450px;
+    border-top: 1px solid #ccc;
+    clear: both;
+}
+.all_info  .change_info{
+    width: 60px;
+    color: red;
+    float: right;
+    margin: 10px 10px 0 0;
+    padding-left: 30px;
+    background: white url("../images/settings.jpg") no-repeat left center;
+    cursor: pointer;
+}
+.all_info  .change_info:hover{
+    text-decoration: underline;
+}
+a{
+    cursor: pointer;
+}
+

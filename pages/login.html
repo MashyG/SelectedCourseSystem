@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>登录页面</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../plugins/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="../js/login.js"></script>
+</head>
+
+<body>
+    <div>
+        <div id="school_logo">
+            <img id="logo_img" src="../images/logo.jpg" title="华南理工大学广州学院" />
+        </div>
+        <div id="login_form">
+            <from id="loginForm">
+                <p style="text-align: center; color: #555555;margin:10px;">选 课 系 统</p>
+                <!--用户名-->
+                <div class="login">
+                    <span>
+                        <img src="../images/av69d9def86876071041d.png" style="height:20px; width:20px;" />
+                    </span>
+                    <input type="text" id="userName" autocomplete="off" placeholder="  ID" onfocus="this.placeholder=' ';" onblur="this.placeholder='  ID';"
+                    />
+                    <span id="check_userName"></span>
+                </div>
+                <!--密码-->
+                <div class="login">
+                    <span>
+                        <img src="../images/lock-24-512.png" style="height:20px; width:20px;" />
+                    </span>
+                    <input type="password" id="password" autocomplete="off" placeholder="  password" onfocus="this.placeholder=' ';" onblur="this.placeholder='  password'"
+                    />
+                    <span id="check_password"></span>
+                </div>
+                <!--登录者-->
+                <div class="login_er">
+                    <input type="radio" name="login_er" id="manager" value="manager" />
+                    <label>管理员</label>
+                    <input type="radio" name="login_er" id="student" value="student" checked="checked" />
+                    <label class="changeColor">学生</label>
+                    <input type="radio" name="login_er" id="teacher" value="teacher" />
+                    <label>教务员</label>
+                </div>
+
+                <input id="send" type="submit" value="登录"/>
+            </from>
+        </div>
+    </div>
+</body>
+
+</html>
