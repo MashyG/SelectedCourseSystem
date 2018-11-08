@@ -3,20 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>collegeRoll</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
-    <script src="../../plugins/jquery-2.2.3.min.js"></script>
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
-    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script>
-
-    <link rel="stylesheet" href="../../css/form.css">
-    <link rel="stylesheet" href="../../css/list.css">
-    <script type="text/javascript" src="../../js/manager.js"></script>
 </head>
 <body>
-<input type="button" class="btn btn-default" id="allClass_info" value="所有班级信息" />
-<input type="button" class="btn btn-default" id="logClass" value="添加专业班级" />
+<input type="button" class="btn btn-default" id="allClass_info" value="所有班级信息" onclick="allClassInfo();"  />
+<input type="button" class="btn btn-default" id="logClass" value="添加专业班级" onclick="logClass();"  />
 <div class="list-body" style="padding: 10px;">
     <form class="form-horizontal" role="form" id="edit-content">
         <div class="form-group">
@@ -36,7 +26,7 @@
                 <div>录入时间:</div><input type="text" placeholder="录入时间" id="createDate">
             </div>
             <div>
-                <div></div><input type="button" class="btn btn-default" id="classInfo_roll" value="录入" />
+                <div></div><input type="button" class="btn btn-default" id="classInfo_roll" value="录入" onclick="classInfoRoll();" />
             </div>
         </div>
     </form>

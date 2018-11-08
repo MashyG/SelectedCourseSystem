@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="../../css/headCss.css">
     <link rel="stylesheet" href="../../css/manager.css">
+    <link rel="stylesheet" href="../../css/form.css">
+    <link rel="stylesheet" href="../../css/list.css">
     <script type="text/javascript" src="../../js/manager.js"></script>
     <script src="../../js/logout.js"></script>
 </head>
@@ -35,9 +37,9 @@
     <div class="content">
         <form class="nacbar-form navbar-left">
             <input type="button" class="btn btn-default" id="superManagerInfo" value="个人信息" onclick="superManager_info();" />
-            <input type="button" class="btn btn-default" id="manageCollege" value="学院管理" />
-            <input type="button" class="btn btn-default" id="manageTeacher" value="管理员管理" />
-            <input type="button" class="btn btn-default" id="manager" value="超级管理员管理" />
+            <input type="button" class="btn btn-default" id="manageCollege" value="学院管理" onclick="managerCollege();" />
+            <input type="button" class="btn btn-default" id="manageTeacher" value="管理员管理" onclick="managerTeacher();" />
+            <input type="button" class="btn btn-default" id="manager" value="超级管理员管理" onclick="supManager()" />
             <input type="button" class="btn btn-default" id="modify_password" value="修改密码" onclick="modifyPassword();"  />
         </form>
     </div>

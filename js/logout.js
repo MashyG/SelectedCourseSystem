@@ -24,7 +24,7 @@ $(document).ready(function () {
                 },
                 error:function(jqXHR){
                     //请求失败函数内容
-                    alert('请求失败!!');
+                    alert('修改失败!!');
                 }
             });
         }

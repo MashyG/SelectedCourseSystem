@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="../../css/headCss.css">
     <link rel="stylesheet" href="../../css/teacher.css">
+    <link rel="stylesheet" href="../../css/list.css">
+    <link rel="stylesheet" href="../../css/form.css">
     <script type="text/javascript" src="../../js/teacher.js"></script>
     <script src="../../js/logout.js"></script>
 </head>
@@ -35,10 +37,10 @@
 
     <div class="content">
         <form class="nacbar-form navbar-left" role="search">
-            <input type="button" class="btn btn-default" id="teacherInfo" value="个人信息"  onclick="managerInfo();" />
-            <input type="button" class="btn btn-default" id="studentManage" value="学生管理" />
-            <input type="button" class="btn btn-default" id="courseManage" value="课程管理" />
-            <input type="button" class="btn btn-default" id="timeSet" value="时间设定" />
+            <input type="button" class="btn btn-default" id="teacherInfo" value="个人信息"  onclick="TeacherInfo();" />
+            <input type="button" class="btn btn-default" id="studentManage" value="学生管理" onclick="manageStudent();" />
+            <input type="button" class="btn btn-default" id="courseManage" value="课程管理" onclick="courseManageInfo();" />
+            <input type="button" class="btn btn-default" id="timeSet" value="时间设定" onclick="timeSetting()" />
             <input type="button" class="btn btn-default" id="modify_password" value="修改密码" onclick="modifyPassword();"  />
         </form>
     </div>

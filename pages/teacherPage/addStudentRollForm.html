@@ -3,20 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>studentRoll</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
-    <script src="../../plugins/jquery-2.2.3.min.js"></script>
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
-    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script>
-
-    <link rel="stylesheet" href="../../css/list.css">
-    <link rel="stylesheet" href="../../css/form.css">
     <script type="text/javascript" src="../../js/teacher.js"></script>
 </head>
 <body>
-<input type="button" class="btn btn-default" id="student_info" value="学生信息" />
-<input type="button" class="btn btn-default" id="addStudent_info" value="添加学生信息" />
+<input type="button" class="btn btn-default" id="student_info" value="学生信息" onclick="studentInfo()"/>
+<input type="button" class="btn btn-default" id="addStudent_info" value="添加学生信息" onclick="addStudentInfo()" />
 
 <div class="list-body" style="padding: 50px;border-top: 1px solid #ccc;">
     <form class="form-horizontal" role="form" id="edit-content">
@@ -43,7 +34,7 @@
                 <div>联系号码:</div><input type="text" placeholder="联系号码" id="phone">
             </div>
             <div>
-                <div></div><input type="button" class="btn btn-default" id="addStudentInfo" value="添加" />
+                <div></div><input type="button" class="btn btn-default" id="addStudentInfo" value="添加" onclick="addStudentInfo1();" />
             </div>
         </div>
     </form>

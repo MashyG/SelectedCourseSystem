@@ -8,6 +8,12 @@ $(document).ready(function () {
             .siblings().attr('checked', false);
     });
 
+    document.onkeydown = function(e){
+        let ev = document.all ? window.event : e;
+        if(ev.keyCode==13)
+            $('#send').click();
+    };
+
     //登陆
     $("#send").click(function(){
         let str;
@@ -19,8 +25,8 @@ $(document).ready(function () {
         else if($('input:radio:checked').val() == 'manager')//管理员页面
             str = 'managerPage/manager.html?';
 
-        var userName =  $('#userName').val();
-        var passWord = $('#password').val();
+        let userName =  $('#userName').val();
+        let passWord = $('#password').val();
 
         if(userName == '' && passWord == ''){
             alert('学号不能为空！');
@@ -55,7 +61,7 @@ $(document).ready(function () {
                         self.location.href = str + 'username=' + userName + '&password=';
                     }
                     else{
-                        alert('用户或密码错误，请重新输入！');
+                        alert('用户名或密码错误，请重新输入');
                     }
                 },
                 error:function(){

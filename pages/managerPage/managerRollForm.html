@@ -3,20 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>managerRoll</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
-    <script src="../../plugins/jquery-2.2.3.min.js"></script>
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
-    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script>
-
-    <link rel="stylesheet" href="../../css/form.css">
-    <link rel="stylesheet" href="../../css/list.css">
-    <script type="text/javascript" src="../../js/manager.js"></script>
 </head>
 <body>
-<input type="button" class="btn btn-default" id="allManager_info" value="所有超级管理员信息" />
-<input type="button" class="btn btn-default" id="logManager_info" value="添加超级管理员信息" />
+<input type="button" class="btn btn-default" id="allManager_info" value="所有超级管理员信息" onclick="allSupManagerInfo()" />
+<input type="button" class="btn btn-default" id="logManager_info" value="添加超级管理员信息" onclick="logSupManagerInfo()" />
 <div class="list-body" style="padding: 10px;">
     <form class="form-horizontal" role="form" id="edit-content">
         <div class="form-group">
@@ -30,7 +20,7 @@
                 <div>联系电话:</div><input type="text" placeholder="联系电话" id="phone">
             </div>
             <div>
-                <div></div><input type="button" class="btn btn-default" id="managerInfo_roll" value="录入" />
+                <div></div><input type="button" class="btn btn-default" id="managerInfo_roll" value="录入" onclick="supManagerInfoRoll()" />
             </div>
         </div>
     </form>

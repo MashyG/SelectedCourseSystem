@@ -25,9 +25,10 @@
     text-align-last: right;
     font-size: 14px;
 }
-#studentInfo_roll,#teacherInfo_roll,#classInfo_roll,#managerInfo_roll,#changeSuperManagerInfo,
-#changeManagerInfo,#superManagerInfo_roll,#changeInfo,#changeStudentInfo,#courseInfo_roll,#changeAllCourseInfo,
-#changeTimeInfo,#timeInfo_roll,#modifyPassword_roll,#addStudentInfo,#changeSelectedCourseInfo,#addStudentSelectedCourse{
+#studentInfo_roll,#teacherInfo_roll,#classInfo_roll,#managerInfo_roll,#changeSuperManager_Info,
+#changeManager_Info,#superManagerInfo_roll,#changeInfo,#changeStudent_Info,#courseInfo_roll,#changeAllCourse_Info,
+#changeTime_Info,#timeInfo_roll,#modifyPassword_roll,#addStudentInfo,#changeSelectedCourseInfo,#addStudentSelectedCourse,
+#changeStudentInfo,#changeAllCourseInfo,#changeTimeInfo{
     width: 10%;
     margin-left: 150px;
 }
