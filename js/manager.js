@@ -42,8 +42,121 @@ function superManager_info(){
         error : function(data){
             //请求失败函数内容
             console.log(data.result);
+            alert("查询失败！");
         }
     });
+}
+//修改超级管理员个人信息
+function changeSuperManagerInfo() {
+    $('div.all_info').load("changeSuperManagerInfo.html");
+    $.ajax({
+        //请求方式
+        type: 'GET',
+        //发送请求的地址
+        url: "http://39.108.57.12:8080/CourseSystem/superManager/self" ,
+        //url: "http://192.168.137.1:8080/CourseSystem/superManager/self" ,
+        xhrFields:{
+            withCredentials:true
+        },
+        crossDomain:true,
+        //服务器返回的数据类型
+        dataType: 'json',
+        success:function(data) {
+            //请求成功函数内容
+            //alert('请求成功!');
+            console.log(data.result);
+            $.each(data.result, function(i, n) {
+                $('#supName').val(n.supName);
+                $('#sex').val(n.sex);
+                $('#phone').val(n.phone);
+            });
+        },
+        error : function(data){
+            //请求失败函数内容
+            console.log(data.msg);
+        }
+    });
+}
+function changeSuperManagerInfo1() {
+    let supManagerPhone = $('#phone').val();
+    let reg = /^1[3|4|5|7|8][0-9]{9}$/;     //联系号码的正则表达式
+    if(reg.test(supManagerPhone)) {
+        $.ajax({
+            //请求方式
+            type: 'PUT',
+            //发送请求的地址
+            //url: "http://192.168.137.1:8080/CourseSystem/superManager/self" ,
+            url: 'http://39.108.57.12:8080/CourseSystem/superManager/self',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //数据
+            data: JSON.stringify({  //解决错误码400
+                'supName': $('#supName').val(),
+                'sex': $('#sex').val(),
+                'phone': $('#phone').val()
+            }),
+            contentType: 'application/json;charset=UTF-8',//解决错误码415
+            //服务器返回的数据类型
+            dataType: 'json',
+            success: function (data) {
+                //请求成功函数内容
+                console.log(data.result);
+                if (data.result == 'success') {
+                    alert('修改成功!');
+                    $('div.all_info').load("changeSuperManagerInfo.html");
+                }
+                else {
+                    alert(data.msg);
+                }
+            },
+            error: function (data) {
+                //请求失败函数内容
+                console.log(data.result);
+            }
+        });
+    }
+    else{
+        alert("联系号码有误，请重新输入");
+    }
+}
+//删除超级管理员个人信息
+function deleteSuperManagerInfo() {
+    let r = confirm("是否删除个人信息？");
+    if(r == true){
+        $.ajax({
+            //请求方式
+            type: 'DELETE',
+            //发送请求的地址
+            url: "http://39.108.57.12:8080/CourseSystem/superManager/self" ,
+            //url: "http://192.168.137.1:8080/CourseSystem/superManager/self" ,
+            xhrFields:{
+                withCredentials:true
+            },
+            crossDomain:true,
+            //服务器返回的数据类型
+            dataType: 'json',
+            success:function(data) {
+                //请求成功函数内容
+                if(data.result == 'success'){
+                    alert('删除成功！');
+                    console.log(data.result);
+                    self.location.href = '../login.html';
+                }
+                else{
+                    alert(data.msg);
+                }
+            },
+            error : function(data){
+                //请求失败函数内容
+                console.log(data.result);
+            }
+        });
+    }
+    else{
+
+    }
 }
 
 
@@ -161,40 +274,48 @@ function classInfoRoll() {
                 alert('录入成功!');
                 $('div.all_info').load("collegeRollForm.html");
             }
+            else{
+                alert(data.msg);
+            }
         },
         error : function(data){
             //请求失败函数内容
-            console.log(data.result);
+            console.log(data);
         }
     });
 }
 //删除班级
 function delClass(i,claId) {
-    alert("是否删除该班级?");
-    i.parentNode.parentNode.remove();
-    $.ajax({
-        //请求方式
-        type: 'DELETE',
-        //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/superManager/team?claId=' + claId  ,
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        //服务器返回的数据类型
-        dataType: 'json',
-        success:function(data) {
-            //请求成功函数内容
-            console.log(data.result);
-            if(data.result == 'success'){
-                alert('删除成功！');
+    let r = confirm("是否删除该班级？");
+    if(r == true){
+        i.parentNode.parentNode.remove();
+        $.ajax({
+            //请求方式
+            type: 'DELETE',
+            //发送请求的地址
+            url: 'http://39.108.57.12:8080/CourseSystem/superManager/team?claId=' + claId  ,
+            xhrFields:{
+                withCredentials:true
+            },
+            crossDomain:true,
+            //服务器返回的数据类型
+            dataType: 'json',
+            success:function(data) {
+                //请求成功函数内容
+                console.log(data.result);
+                if(data.result == 'success'){
+                    alert('删除成功！');
+                }
+                else{
+                    alert(data.msg);
+                }
+            },
+            error : function(data){
+                //请求失败函数内容
+                console.log(data.result);
             }
-        },
-        error : function(data){
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
+        });
+    }
 }
 
 
@@ -339,37 +460,78 @@ var managerId;
 function editManager(manId){
     managerId = manId;
     $('div.all_info').load("changeManagerInfo.html");
-}
-function changeManagerInfo(){
     $.ajax({
         //请求方式
-        type: 'PUT',
+        type: 'GET',
         //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager' ,
-        data: JSON.stringify({
-            manId : managerId,
-            manName :  $('#manName').val(),
-            sex :  $('#sex').val(),
-            phone :  $('#phone').val(),
-            graName : $('#graName').val(),
-            job : $('#job').val()
-        }),
-        contentType: 'application/json;charset=UTF-8',//解决错误码415
+        url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager?manId=' + managerId ,
+        xhrFields:{
+            withCredentials:true
+        },
+        crossDomain:true,
         //服务器返回的数据类型
         dataType: 'json',
         success:function(data) {
             //请求成功函数内容
             console.log(data.result);
-            if(data.result == 'success'){
-                alert('修改成功!');
-            }
-            $('div.all_info').load("changeManagerInfo.html");
+            $.each(data.result, function(i, n) {
+                $('#manName').val(n.manName);
+                $('#sex').val(n.sex);
+                $('#graName').val(n.graName);
+                $('#job').val(n.job);
+                $('#phone').val(n.phone);
+                $('#createDate').val(n.createDate);
+            });
         },
         error : function(data){
             //请求失败函数内容
-            console.log(data.result);
+            console.log(data);
         }
     });
+}
+function changeManagerInfo1(){
+    let ManagerPhone = $('#phone').val();
+    let reg = /^1[3|4|5|7|8][0-9]{9}$/;     //联系号码的正则表达式
+    if(reg.test(ManagerPhone)) {
+        $.ajax({
+            //请求方式
+            type: 'PUT',
+            //发送请求的地址
+            url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager?manId=' + managerId,
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            data: JSON.stringify({
+                manName: $('#manName').val(),
+                sex: $('#sex').val(),
+                phone: $('#phone').val(),
+                graName: $('#graName').val(),
+                job: $('#job').val()
+            }),
+            contentType: 'application/json;charset=UTF-8',//解决错误码415
+            //服务器返回的数据类型
+            dataType: 'json',
+            success: function (data) {
+                //请求成功函数内容
+                console.log(data.result);
+                if (data.result == 'success') {
+                    alert('修改成功!');
+                    $('div.all_info').load("changeManagerInfo.html");
+                }
+                else {
+                    alert(data.msg);
+                }
+            },
+            error: function (data) {
+                //请求失败函数内容
+                console.log(data.result);
+            }
+        });
+    }
+    else{
+        alert("联系号码有误，请重新输入");
+    }
 }
 
 
@@ -384,7 +546,7 @@ function allSupManagerInfo() {
         //请求方式
         type: 'GET',
         //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/superManager/self'  ,
+        url: 'http://39.108.57.12:8080/CourseSystem/superManager/selves'  ,
         //url: 'http://192.168.137.1:8080/CourseSystem/superManager/selves'  ,
         xhrFields:{
             withCredentials:true
@@ -423,8 +585,7 @@ function checkedSupManager() {
         //请求方式
         type: 'GET',
         //发送请求的地址
-        //url: 'http://192.168.137.1:8080/CourseSystem/superManager/selves?supId=' + $('#supId').val() + '&supName=' + $('#supName').val() ,
-        url: 'http://39.108.57.12:8080/CourseSystem/superManager/self?supId=' + $('#supId').val() + '&supName=' + $('#supName').val() ,
+        url: 'http://39.108.57.12:8080/CourseSystem/superManager/selves?supId=' + $('#supId').val() + '&supName=' + $('#supName').val() ,
         xhrFields:{
             withCredentials:true
         },
@@ -448,107 +609,52 @@ function checkedSupManager() {
         }
     });
 }
-//添加超级管理员信息(创建人为空？？)
+//添加超级管理员信息
 function logSupManagerInfo() {
     $('div.all_info').load("managerRollForm.html");
 }
 function supManagerInfoRoll() {
-    $.ajax({
-        //请求方式
-        type: 'POST',
-        //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/superManager/self',
-        //url: 'http://192.168.137.1:8080/CourseSystem/superManager/self',
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        //数据
-        data: {
-            "supName" :   $('#supName').val(),
-            "sex" :       $('#sex').val(),
-            "phone" :     $('#phone').val()
-        },
-        contentType: 'application/json;charset=UTF-8',//解决错误码415
-        //服务器返回的数据类型
-        dataType : 'json',
-        success:function(data) {
-            //请求成功函数内容
-            console.log(data.result);
-            if(data.result == 'success'){
-                alert('录入成功!');
-                $('div.all_info').load("managerRollForm.html");
+    let superManagerPhone = $('#phone').val();
+    let reg = /^1[3|4|5|7|8][0-9]{9}$/;     //联系号码的正则表达式
+    if(reg.test(superManagerPhone)) {
+        $.ajax({
+            //请求方式
+            type: 'POST',
+            //发送请求的地址
+            url: 'http://39.108.57.12:8080/CourseSystem/superManager/self',
+            //url: 'http://192.168.137.1:8080/CourseSystem/superManager/self',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //数据
+            data: JSON.stringify({
+                    "supName": $('#supName').val(),
+                    "sex": $('#sex').val(),
+                    "phone": $('#phone').val()
+                }
+            ),
+            contentType: 'application/json;charset=UTF-8',//解决错误码415
+            //服务器返回的数据类型
+            dataType: 'json',
+            success: function (data) {
+                //请求成功函数内容
+                console.log(data.result);
+                if (data.result == 'success') {
+                    alert('录入成功!');
+                    $('div.all_info').load("managerRollForm.html");
+                }
+                else {
+                    alert(data.msg);
+                }
+            },
+            error: function (data) {
+                //请求失败函数内容
+                console.log(data.result);
             }
-        },
-        error : function(data){
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
+        });
+    }
+    else{
+        alert("联系号码有误，请重新输入");
+    }
 }
-//修改超级管理员个人信息
-function changeSuperManagerInfo() {
-    $('div.all_info').load("changeInfo.html");
-}
-function changeSuperManagerInfo1() {
-    $.ajax({
-        //请求方式
-        type: 'PUT',
-        //发送请求的地址
-        //url: "http://192.168.137.1:8080/CourseSystem/superManager/self" ,
-        url: 'http://39.108.57.12:8080/CourseSystem/superManager/self' ,
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        //数据
-        data: JSON.stringify({  //解决错误码400
-            'supName' :       $('#supName').val(),
-            'sex' :           $('#sex').val(),
-            'phone' :       $('#phone').val()
-        }),
-        contentType: 'application/json;charset=UTF-8',//解决错误码415
-        //服务器返回的数据类型
-        dataType : 'json',
-        success:function(data) {
-            //请求成功函数内容
-            console.log(data.result);
-            if(data.result == 'success'){
-                alert('保存成功!');
-                $('div.all_info').load("changeInfo.html");
-            }
-        },
-        error : function(data){
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
-}
-//删除超级管理员个人信息
-function deleteSuperManagerInfo() {
-    $.ajax({
-        //请求方式
-        type: 'DELETE',
-        //发送请求的地址
-        url: "http://39.108.57.12:8080/CourseSystem/superManager/self" ,
-        //url: "http://192.168.137.1:8080/CourseSystem/superManager/self" ,
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        //服务器返回的数据类型
-        dataType: 'json',
-        success:function(data) {
-            //请求成功函数内容
-            alert('删除成功！');
-            console.log(data.result);
-            self.location.href = '../login.html';
-        },
-        error : function(data){
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
-}
-
-

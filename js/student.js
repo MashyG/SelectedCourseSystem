@@ -40,44 +40,51 @@ function studentInfo() {
                 $('#table').append(tbody);
             })
         },
-        error: function (jqXHR) {
+        error: function (data) {
             //请求失败函数内容
-            //alert('查询失败!!');
+            alert('查询失败!!');
             console.log(data.result);
         }
     });
 }
 //修改学生个人信息(电话号码)
 function changeStudentInfo() {
-    $('div.all_info').load("changeInfo.html");
+    $('div.all_info').load("changeStudentInfo.html");
 }
 function changeStudentPhone() {
-    $.ajax({
-        //请求方式
-        type: 'PUT',
-        //发送请求的地址
-        url: "http://39.108.57.12:8080/CourseSystem/student/self/modifyPhone?phone=" + $('#phone').val() ,
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        //服务器返回的数据类型
-        dataType: 'json',
-        success:function(data) {
-            //请求成功函数内容
-            //alert('请求成功!');
-            console.log(data.result);
-            if(data.result == 'success'){
-                alert('修改成功！');
-                $('div.all_info').load("changeInfo.html");
+    let studentPhone = $('#phone').val();
+    let reg = /^1[3|4|5|7|8][0-9]{9}$/;     //联系号码的正则表达式
+    if(reg.test(studentPhone)) {
+        $.ajax({
+            //请求方式
+            type: 'PUT',
+            //发送请求的地址
+            url: "http://39.108.57.12:8080/CourseSystem/student/self/modifyPhone?phone=" + $('#phone').val(),
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //服务器返回的数据类型
+            dataType: 'json',
+            success: function (data) {
+                //请求成功函数内容
+                //alert('请求成功!');
+                console.log(data.result);
+                if (data.result == 'success') {
+                    alert('修改成功！');
+                    $('div.all_info').load("changeStudentInfo.html");
+                }
+            },
+            error: function (data) {
+                //请求失败函数内容
+                alert('修改失败!!');
+                console.log(data.result);
             }
-        },
-        error:function(data){
-            //请求失败函数内容
-            //alert('查询失败!!');
-            console.log(data.result);
-        }
-    });
+        });
+    }
+    else{
+        alert("联系号码有误，请重新输入");
+    }
 }
 
 //查询已选课程
@@ -118,11 +125,10 @@ function checkedCourse() {
         },
         error:function(data){
             //请求失败函数内容
-            //alert('查询失败!!');
+            alert('查询失败!!');
             console.log(data.result);
         }
     });
-
 }
 
 //查询可选课程
@@ -145,16 +151,23 @@ function checkedSelectedCourse() {
             console.log(data.result);
             $.each(data.result, function(i, n) {
                 let tbBody = "";
-                tbBody += "<tr><td>"+ n.couId + "</td>" + "<td>" + n.couName + "</td>" + "<td>" + n.credit + "</td>" +
-                    "<td>" + n.type + "</td>" + "<td>" + n.nature + "</td>" + "<td>" + n.necessity + "</td><td>" +
-                    "<a target='_parent' onclick='selectedCourse("+ n.couId +")' >选修</a></td></tr>";
-                selectedCourseName[n.couId] = n.couName;
+                if(n.necessity == '1'){
+                    tbBody += "<tr><td>"+ n.couId + "</td>" + "<td>" + n.couName + "</td>" + "<td>" + n.credit + "</td>" +
+                        "<td>" + n.type + "</td>" + "<td>" + n.nature + "</td>" + "<td>" + n.necessity + "</td><td>--</td></tr>";
+                    selectedCourseName[n.couId] = n.couName;
+                }
+                else{
+                    tbBody += "<tr><td>"+ n.couId + "</td>" + "<td>" + n.couName + "</td>" + "<td>" + n.credit + "</td>" +
+                        "<td>" + n.type + "</td>" + "<td>" + n.nature + "</td>" + "<td>" + n.necessity + "</td><td>" +
+                        "<a target='_parent' onclick='selectedCourse("+ n.couId +")' >选修</a></td></tr>";
+                    selectedCourseName[n.couId] = n.couName;
+                }
                 $("#select-table").append(tbBody);
             });
         },
         error:function(data){
             //请求失败函数内容
-            //alert('查询失败!!');
+            alert('查询失败!!');
             console.log(data.result);
         }
     });
@@ -211,14 +224,16 @@ function withdraw(choiceId) {
             console.log(data.result);
             if(data.result == 'success'){
                 alert("退选成功!");
+                $('div.all_info').load("check_course.html");
             }
-            else if(data.result == 'fail'){
-                alert('未到退课时间!!');
+            else{
+                alert(data.msg);
             }
+
         },
         error:function(data){
             //请求失败函数内容
-            //alert('查询失败!!');
+            alert('退选失败!!');
             console.log(data.result);
         }
     });

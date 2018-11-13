@@ -1,7 +1,48 @@
-$(document).ready(function () {
+
+//用户退出时返回登陆页面
+function logout() {
+    let r = confirm("是否退出？");
+    if(r == true) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://39.108.57.12:8080/CourseSystem/user/logout',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function (responseText) {
+                //请求成功函数内容
+                if (responseText.result == 'success') {
+                    alert('退出成功！');
+                    self.location.href = '../login.html';
+                }
+            },
+            error: function () {
+                //请求失败函数内容
+                alert('退出失败');
+            }
+        });
+    }
+}
+
 //修改密码
-    $('#modifyPassword_roll').click(function () {
-        if($('#newPWD1').val() == $('#newPWD2').val()){
+function modifyPassword(){
+    $('div.all_info').load("../modifyPasswordRollForm.html");
+}
+function modify_password() {
+    if($('#lastPWD').val() == '')
+        alert("原密码不能为空！");
+    if($('#newPWD1').val() == '' && $('#newPWD2').val() == '')
+        alert("新密码不能为空！");
+
+    if($('#newPWD1').val() != '' && $('#newPWD2').val() != '' && $('#lastPWD').val() != ''){
+        if($('#newPWD1').val() != $('#newPWD2').val()){
+            alert("两次输入的新密码不一样，请重新输入！");
+        }
+        else if($('#lastPWD').val() == $('#newPWD1').val()){
+            alert("新密码和旧密码一样，请重新输入！");
+        }
+        else{
             $.ajax({
                 //请求方式
                 type: 'PUT',
@@ -21,45 +62,16 @@ $(document).ready(function () {
                         alert('修改成功！');
                         $('div.all_info').load("../modifyPasswordRollForm.html");
                     }
+                    else{
+                        alert(data.msg);
+                    }
                 },
-                error:function(jqXHR){
+                error:function(){
                     //请求失败函数内容
+                    console.log(data);
                     alert('修改失败!!');
                 }
             });
         }
-        else{
-            alert('两次输入密码不正确，请重新输入新密码！');
-        }
-    });
-
-});
-
-//用户退出时返回登陆页面
-function logout() {
-    $.ajax({
-        type: 'GET',
-        url: 'http://39.108.57.12:8080/CourseSystem/user/logout',
-        //url: 'http://192.168.137.1:8080/CourseSystem/user/logout',
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        success: function (responseText) {
-            //请求成功函数内容
-            if (responseText.result == 'success') {
-                alert('退出成功！');
-                self.location.href = '../login.html';
-            }
-        },
-        error: function (jqXHR) {
-            //请求失败函数内容
-            alert('GET 请求失败！');
-        }
-    });
-}
-
-//修改密码
-function modifyPassword(){
-    $('div.all_info').load("../modifyPasswordRollForm.html");
+    }
 }
