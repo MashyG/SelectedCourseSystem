@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>teacherRoll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
+    <script src="../../plugins/jquery-2.2.3.min.js"></script>
+    <link rel="stylesheet" href="../../css/list.css">
+    <script type="text/javascript" src="../../js/manager/managerIndex.js"></script>
+</head>
+<body>
+<div class="searchBar">
+    <button class="btn btn-default" id="allTeacher_info" onclick="checkAllManager()">查看</button>
+    <button class="btn btn-default" id="logTeacher_info" onclick="newManPage()">添加</button>
+</div>
+<div class="list-body" id="content" style="padding: 10px;">
+    <form class="navbar-form navbar-right" role="search">
+        <input type="text" class="form-control" id="manId" placeholder="学号">
+        <input type="text" class="form-control" id="manName" placeholder="名字">
+        <button class="btn btn-default" id="checkedTeacher" onclick="checkOneManager()">查询</button>
+    </form>
+
+    <table id="table" class="table table-bordered">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年级</th>
+            <th>职务</th>
+            <th>联系电话</th>
+            <th>录入时间</th>
+            <th>操作</th>
+        </tr>
+        <tbody class="tbBody" id="tbBody"></tbody>
+    </table>
+</div>
+</body>
+</html>

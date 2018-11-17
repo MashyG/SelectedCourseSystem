@@ -11,8 +11,10 @@
 
     <link rel="stylesheet" href="../../css/headCss.css">
     <link rel="stylesheet" href="../../css/student.css">
+    <link rel="stylesheet" href="../../css/student/student.css">
     <link rel="stylesheet" href="../../css/list.css">
     <script type="text/javascript" src="../../js/student.js"></script>
+    <script type="text/javascript" src="../../js/student/stuFun.js"></script>
     <script src="../../js/logout.js"></script>
 </head>
 <body>
@@ -21,15 +23,17 @@
         <div class="logo"></div>
         <h2>选课系统</h2>
         <div class="info">
-            <ul>
-                <li>
-                    <span>欢迎您：</span>
-                    <span id="xxxName">xxx</span>同学
-                </li>
-                <li>
-                    <a onclick="logout();">退出</a>
-                </li>
-            </ul>
+            <div onclick="showMyInfo()">
+                <span>欢迎您：</span>
+                <span id="xxxName">xxx</span>同学
+                <a onclick="logout();">退出</a>
+            </div>
+            <div id="myInfo">
+                <ul>
+                    <li><a href="../student/stu_info.html" target="view_window" onclick="studentInfo()">我的信息</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>collegeRoll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../plugins/jquery-2.2.3.min.js"></script>
+    <link rel="stylesheet" href="../../css/headCss.css">
+    <link rel="stylesheet" href="../../css/student/stuInfo.css">
+    <link rel="stylesheet" href="../../css/form.css">
+    <script type="text/javascript" src="../../js/manager.js"></script>
+</head>
+<body>
+<!-- 顶部 -->
+<div class="head">
+    <div class="logo"></div>
+    <h2>选课系统</h2>
+    <div class="info" onmouseover="showMyInfo()" onmouseleave="hideMyInfo()">
+        <div onclick="showMyInfo()">
+            <span>欢迎您：</span>
+            <span id="xxxName">xxx</span>同学
+            <a onclick="logout();">退出</a>
+        </div>
+        <div id="myInfo">
+            <ul>
+                <li><a href="../student/stu_info.html" target="view_window" onclick="studentInfo()">我的信息</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="list-body">
+    <div class="title">添加信息</div>
+    <form class="form-horizontal" role="form" id="edit-content">
+        <div class="form-group">
+            <div>
+                <div>姓名:</div><input type="text" placeholder="姓名" id="manName">
+            </div>
+            <div>
+                <div>性别:</div><input type="text" placeholder="性别" id="sex">
+            </div>
+            <div>
+                <div>年级:</div><input type="text" placeholder="年级" id="graName">
+            </div>
+            <div>
+                <div>职务:</div><input type="text" placeholder="职务" id="job">
+            </div>
+            <div>
+                <div>联系电话:</div><input type="text" placeholder="联系电话" id="phone">
+            </div>
+         </div>
+    </form>
+</div>
+<div class="btn-group">
+    <button class="" onclick="teacherInfoRoll()">录入</button>
+</div>
+</body>
+</html>

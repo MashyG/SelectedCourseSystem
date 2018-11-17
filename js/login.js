@@ -13,11 +13,14 @@ $(document).ready(function () {
         let str;
 
         if($('input:radio:checked').val() == 'student')//学生页面
-            str = 'studentPage/student.html?';
+            str = 'student/studentIndex.html?';
+            //str = 'studentPage/student.html?';
         else if($('input:radio:checked').val() == 'teacher')//教务员页面
-            str = 'teacherPage/teacher.html?';
+            str = 'teacher/teacher.html?';
+            // str = 'teacherPage/teacher.html?';
         else if($('input:radio:checked').val() == 'manager')//管理员页面
-            str = 'managerPage/manager.html?';
+            // str = 'managerPage/manager.html?';
+            str = 'manager/managerIndex.html?';
 
         var userName =  $('#userName').val();
         var passWord = $('#password').val();
@@ -37,8 +40,7 @@ $(document).ready(function () {
                 //请求方式
                 type:'POST',
                 //发送请求的地址
-                url: 'http://39.108.57.12:8080/CourseSystem/user/login' ,
-                //url: 'http://192.168.191.2:8080/CourseSystem/user/login' ,
+                url: 'http://39.108.57.12:8080/CourseSystem/user/login',
                 xhrFields:{
                     withCredentials:true
                 },
@@ -49,7 +51,7 @@ $(document).ready(function () {
                 },
                 success:function(responseText) {
                     //请求成功函数内容
-                    console.log(responseText.result);
+                    console.log("test----" + JSON.stringify(responseText));
                     if (responseText.result == 'success'){
                         alert('登录成功！');
                         self.location.href = str + 'username=' + userName + '&password=';
@@ -58,7 +60,8 @@ $(document).ready(function () {
                         alert('用户或密码错误，请重新输入！');
                     }
                 },
-                error:function(){
+                error:function(e){
+                    console.log("error---" + JSON.stringify((e)));
                     //请求失败函数内容
                     alert('POST 请求失败！');
                 }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>collegeRoll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../plugins/jquery-2.2.3.min.js"></script>
+    <link rel="stylesheet" href="../../css/headCss.css">
+    <link rel="stylesheet" href="../../css/student/stuInfo.css">
+    <link rel="stylesheet" href="../../css/form.css">
+    <script type="text/javascript" src="../../js/manager.js"></script>
+</head>
+<body>
+<!-- 顶部 -->
+<div class="head">
+    <div class="logo"></div>
+    <h2>选课系统</h2>
+    <div class="info" onmouseover="showMyInfo()" onmouseleave="hideMyInfo()">
+        <div onclick="showMyInfo()">
+            <span>欢迎您：</span>
+            <span id="xxxName">xxx</span>同学
+            <a onclick="logout();">退出</a>
+        </div>
+        <div id="myInfo">
+            <ul>
+                <li><a href="../student/stu_info.html" target="view_window" onclick="studentInfo()">我的信息</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="list-body">
+    <div class="title">添加信息</div>
+    <form class="form-horizontal" role="form" id="edit-content">
+        <div class="form-group">
+            <div>
+                <div>年级：</div>
+                <label>
+                    <select id="class" onchange="selectClass()" >
+                        <option value="2015" selected = "selected">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <div>学院：</div>
+                <label>
+                    <select id="college" onchange="selectCollege()" >
+                        <option value="计算机工程学院" selected = "selected">计算机工程学院</option>
+                        <option value="外国语学院">外国语学院</option>
+                        <option value="机械工程学院">机械工程学院</option>
+                        <option value="珠宝学院">珠宝学院</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <div>专业：</div>
+                <label>
+                    <select id="proName" onchange="selectProject()" >
+                    </select>
+                </label>
+            </div>
+            <div>
+                <div>班级：</div>
+                <label>
+                    <select id="claName" onchange="selectClass()" >
+                        <option value="1班">1班</option>
+                        <option value="1班">2班</option>
+                        <option value="1班">3班</option>
+                        <option value="1班">4班</option>
+                        <option value="1班">5班</option>
+                        <option value="1班">6班</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <div>日期：</div>
+                <input type="date" value="请选择时间" />
+            </div>
+        </div>
+    </form>
+</div>
+<div class="btn-group">
+    <button class="">录入</button>
+</div>
+</body>
+</html>
