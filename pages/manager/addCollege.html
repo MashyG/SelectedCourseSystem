@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../../css/headCss.css">
     <link rel="stylesheet" href="../../css/student/stuInfo.css">
     <link rel="stylesheet" href="../../css/form.css">
-    <script type="text/javascript" src="../../js/manager.js"></script>
+    <script type="text/javascript" src="../../js/login.js"></script>
+    <script type="text/javascript" src="../../js/manager/add.js"></script>
 </head>
 <body>
 <!-- 顶部 -->
@@ -16,74 +17,53 @@
     <div class="logo"></div>
     <h2>选课系统</h2>
     <div class="info" onmouseover="showMyInfo()" onmouseleave="hideMyInfo()">
-        <div onclick="showMyInfo()">
+        <div class="logInfo">
             <span>欢迎您：</span>
-            <span id="xxxName">xxx</span>同学
+            <span id="xxxName">xxx</span>管理员
             <a onclick="logout();">退出</a>
         </div>
         <div id="myInfo">
-            <ul>
-                <li><a href="../student/stu_info.html" target="view_window" onclick="studentInfo()">我的信息</a>
-                </li>
-            </ul>
+            <li>
+                <a href="managerInfo.html" target="view_window" onclick="managerInfo()">我的信息</a>
+            </li>
+            <li>
+                <a href="../modifyPasswordRollForm.html" target="view_window" onclick="modifyPassword()">修改密码</a>
+            </li>
         </div>
     </div>
 </div>
-<div class="list-body">
-    <div class="title">添加信息</div>
-    <form class="form-horizontal" role="form" id="edit-content">
-        <div class="form-group">
-            <div>
-                <div>年级：</div>
-                <label>
-                    <select id="class" onchange="selectClass()" >
-                        <option value="2015" selected = "selected">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                    </select>
-                </label>
+<div class="content">
+    <div class="list-body">
+        <div id="title">添加班级信息</div>
+        <form class="form-horizontal" role="form" id="edit-content">
+            <div class="form-group">
+                <div>
+                    <div>年级：</div>
+                    <input type="text" placeholder="请输入班级">
+                    </label>
+                </div>
+                <div>
+                    <div>学院：</div>
+                    <input type="text" placeholder="请输入学院" />
+                </div>
+                <div>
+                    <div>专业：</div>
+                    <input type="text" placeholder="专业" />
+                </div>
+                <div>
+                    <div>班级：</div>
+                    <input type="text" placeholder="请输入班级" />
+                </div>
+                <div>
+                    <div>日期：</div>
+                    <input class="date" type="date" value="请选择时间" />
+                </div>
             </div>
-            <div>
-                <div>学院：</div>
-                <label>
-                    <select id="college" onchange="selectCollege()" >
-                        <option value="计算机工程学院" selected = "selected">计算机工程学院</option>
-                        <option value="外国语学院">外国语学院</option>
-                        <option value="机械工程学院">机械工程学院</option>
-                        <option value="珠宝学院">珠宝学院</option>
-                    </select>
-                </label>
-            </div>
-            <div>
-                <div>专业：</div>
-                <label>
-                    <select id="proName" onchange="selectProject()" >
-                    </select>
-                </label>
-            </div>
-            <div>
-                <div>班级：</div>
-                <label>
-                    <select id="claName" onchange="selectClass()" >
-                        <option value="1班">1班</option>
-                        <option value="1班">2班</option>
-                        <option value="1班">3班</option>
-                        <option value="1班">4班</option>
-                        <option value="1班">5班</option>
-                        <option value="1班">6班</option>
-                    </select>
-                </label>
-            </div>
-            <div>
-                <div>日期：</div>
-                <input type="date" value="请选择时间" />
-            </div>
-        </div>
-    </form>
-</div>
-<div class="btn-group">
-    <button class="">录入</button>
+        </form>
+    </div>
+    <div class="btn-group">
+        <input type="button" class="add" onclick="addCollege()" value="录入" />
+    </div>
 </div>
 </body>
 </html>

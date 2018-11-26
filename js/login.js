@@ -16,7 +16,7 @@ $(document).ready(function () {
             str = 'student/studentIndex.html?';
             //str = 'studentPage/student.html?';
         else if($('input:radio:checked').val() == 'teacher')//教务员页面
-            str = 'teacher/teacher.html?';
+            str = 'teacher/teacherIndex.html?';
             // str = 'teacherPage/teacher.html?';
         else if($('input:radio:checked').val() == 'manager')//管理员页面
             // str = 'managerPage/manager.html?';
@@ -52,13 +52,25 @@ $(document).ready(function () {
                 success:function(responseText) {
                     //请求成功函数内容
                     console.log("test----" + JSON.stringify(responseText));
-                    if (responseText.result == 'success'){
+                    var storage = window.localStorage;
+                    localStorage.setItem("user", userName);
+                    console.log("test----session:" + JSON.stringify(storage["user"]))
+                    if ($('input:radio:checked').val() == 'student' && responseText.msg == "student"){
+                        str = 'student/studentIndex.html?';
+                    }  
+                    else if ($('input:radio:checked').val() == 'teacher' && responseText.msg == "manager"){
+                        str = 'teacher/teacherIndex.html?';
+                    }
+                    else if ($('input:radio:checked').val() == 'manager' && responseText.msg == ""){
+
+                    }
+                        if (responseText.result == 'success'){
                         alert('登录成功！');
                         self.location.href = str + 'username=' + userName + '&password=';
                     }
                     else{
                         alert('用户或密码错误，请重新输入！');
-                    }
+                    } 
                 },
                 error:function(e){
                     console.log("error---" + JSON.stringify((e)));

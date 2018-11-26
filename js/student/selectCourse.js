@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    var storage = window.localStorage;
+    $('#xxxName').html(storage["user"]);
+})
 //选修课程
 var selectedCourseName = [];
 function selectedCourse(couId) {

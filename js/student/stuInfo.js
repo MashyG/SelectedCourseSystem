@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    var storage = window.localStorage;
+    $('#xxxName').html(storage["user"]);
     $.ajax({
         //请求方式
         type: 'GET',

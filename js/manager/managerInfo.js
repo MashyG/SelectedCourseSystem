@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    var storage = window.localStorage;
+    $('#xxxName').html(storage["user"]);
     $.ajax({
         type: 'GET',
         url: "http://39.108.57.12:8080/CourseSystem/superManager/self" ,
@@ -8,7 +10,7 @@ $(document).ready(function(){
         crossDomain:true,
         dataType: 'json',
         success:function(data) {
-            console.log("manager---" + data.result);
+            console.log("manager---" + JSON.stringify(data));
             $('#supId').val(data.result[0].supId);
             $('#supName').val(data.result[0].supName);
             $('#sex').val(data.result[0].sex);

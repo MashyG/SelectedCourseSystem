@@ -4,33 +4,28 @@
     <meta charset="UTF-8">
     <title>collegeRoll</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
+    <!-- <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css"> -->
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrapNav.css">
     <script src="../../plugins/jquery-2.2.3.min.js"></script>
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
-    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script>
-
+   <!--  <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script> -->
+    <link rel="stylesheet" href="../../css/table.css">
     <link rel="stylesheet" href="../../css/list.css">
     <script src="../../js/manager/managerIndex.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
 </head>
 <body>
-<div class="operation">
-    <!--<button class="btn btn-default" id="allClass_info" onclick="checkAllCollege()">查看</button>
-    <button class="btn btn-default" id="logClass">添加</button>-->
-</div>
-<div class="list-body" id="content">
-    <div class="operation">
-        <button class="btn btn-default" id="allClass_info" onclick="checkAllCollege()">查看</button>
-        <button class="btn btn-default" id="logClass" onclick="newCollPage()">添加</button>
-    </div>
-    <form class="navbar-form navbar-right" role="search">
+<div id="content">
+    <div class="list-body" style="padding: 10px;">
+        <form class="searchBar">
         <input type="text" class="form-control" id="graName" placeholder="年级">
         <input type="text" class="form-control" id="acaName" placeholder="学院">
         <input type="text" class="form-control" id="proName" placeholder="专业">
-        <input type="button" class="btn btn-default" id="checkedClass" value="查询" />
+        <input type="button"  class="btn btn-default" id="checkedClass" value="查询" onclick="checkOneCollege()" />
     </form>
 
-    <table id="table" class="table table-bordered">
+    <table id="table" class="table table-bordered" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <th>年级</th>
             <th>学院</th>

@@ -70,3 +70,28 @@
 /*.logInfo{
     padding: 2px 20px;
 }*/
+
+/* .nav{
+    width: 90%;
+    margin: 10px auto;
+    border-bottom: 1px solid #ddd;
+    height: 10%;
+} */
+
+.btn-group{
+    width: 100px;
+    margin: 10px auto;
+}
+
+/* .nav{
+    position: absolute;
+    left: 10px;
+    right: 10px;
+} */
+
+.all_info{
+    margin: 10px auto;
+} 
+
+
+

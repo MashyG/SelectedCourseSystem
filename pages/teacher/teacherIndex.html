@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>managePage</title>
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrapNav.css">
+    <!-- <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css"> -->
     <script src="../../plugins/jquery-2.2.3.min.js" type="text/javascript"></script>
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
-    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script>
-
+    <!-- <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script> -->
+    <!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script> -->
+    <!-- <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+ -->
+    <script src="../../plugins/bootstrap/js/bootstrapNav.js"></script>
     <link rel="stylesheet" href="../../css/headCss.css">
-    <link rel="stylesheet" href="../../css/manager.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <!-- <link rel="stylesheet" href="../../css/manager.css"> -->
+
+    <link rel="stylesheet" href="../../css/teacher/teacherIndex.css">
     <script type="text/javascript" src="../../js/teacher.js"></script>
     <script type="text/javascript" src="../../js/common.js"></script>
     <script src="../../js/logout.js"></script>
@@ -36,15 +44,43 @@
         </div>
     </div>
 </div>
-
-<div class="content">
-    <button onclick="manageStudent()">学生管理</button>
-    <button>课程管理</button>
-    <button>选课时间</button>
-</div>
-
-<div class="all_info">
-
-</div>
+    <div class="content">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        学生管理
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" onclick="studentInfo()">查看学生信息</a>
+                        <a class="dropdown-item" href="#" onclick="addStudentInfo()">添加学生信息</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">课程管理</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" onclick="allCourseInfo()">所有课程信息</a>
+                        <a class="dropdown-item" onclick="addCourseInfo()">添加课程信息</a>
+                        <a class="dropdown-item" onclick="studentChoiceInfo()">学生选课信息</a>
+                        <a class="dropdown-item" onclick="studentCourseInfo()">学生可选课程</a>
+                        <a class="dropdown-item" onclick="addStudentCourseInfo()">添加可选课程</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        选课时间
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" onclick="checkedTimeInfo()" href="#">查询时间</a>
+                        <a class="dropdown-item" onclick="addTimeInfo()" href="#">添加时间</a>
+                    </div>
+                </li>
+                <!-- Dropdown -->
+                
+            </ul>
+        </nav>
+    </div>
+    <div class="all_info"></div>
 </body>
 </html>

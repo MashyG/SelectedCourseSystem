@@ -1,5 +1,11 @@
 .list-body{
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 10px auto;
+}
+#title{
+    width: 15%;
+    font-size: 24px;
+    color: blue;
+    border-bottom: 5px solid blue;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }

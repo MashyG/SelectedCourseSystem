@@ -1,4 +1,6 @@
 function checkCourse(){
+    var storage = window.localStorage;
+    $('#xxxName').html(storage["user"]);
     $('div.all_info').load("checkCourseList.html");
     $.ajax({
         //请求方式
