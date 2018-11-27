@@ -8,25 +8,19 @@ $(document).ready(function () {
             .siblings().attr('checked', false);
     });
 
-    document.onkeydown = function(e){
-        let ev = document.all ? window.event : e;
-        if(ev.keyCode==13)
-            $('#send').click();
-    };
-
     //登陆
     $("#send").click(function(){
         let str;
 
         if($('input:radio:checked').val() == 'student')//学生页面
-            str = 'student';
-        else if($('input:radio:checked').val() == 'manager')//教务员页面
-            str = 'manager';
-        else if($('input:radio:checked').val() == 'superManager')//管理员页面
-            str = 'superManager';
+            str = 'studentPage/student.html?';
+        else if($('input:radio:checked').val() == 'teacher')//教务员页面
+            str = 'teacherPage/teacher.html?';
+        else if($('input:radio:checked').val() == 'manager')//管理员页面
+            str = 'managerPage/manager.html?';
 
-        let userName =  $('#userName').val();
-        let passWord = $('#password').val();
+        var userName =  $('#userName').val();
+        var passWord = $('#password').val();
 
         if(userName == '' && passWord == ''){
             alert('学号不能为空！');
@@ -53,29 +47,25 @@ $(document).ready(function () {
                     username : userName,
                     password : passWord
                 },
-                success:function(data) {
+                success:function(responseText) {
                     //请求成功函数内容
-                    console.log(data.result);
-                    if (data.result == 'success'){
-                        if(data.msg == str){
-                            alert('登录成功');
-                            self.location.href = str + 'Page/' + str + '.html?username=' + userName + '&password=';
-                        }
-                        else{
-                            alert('该用户不存在，请检查后输入');
-                        }
+                    console.log(responseText.result);
+                    if (responseText.result == 'success'){
+                        alert('登录成功！');
+                        self.location.href = str + 'username=' + userName + '&password=';
                     }
                     else{
-                        alert('用户名或密码错误，请重新输入');
+                        alert('用户或密码错误，请重新输入！');
                     }
                 },
-                error:function(data){
+                error:function(){
                     //请求失败函数内容
-                    alert(data.msg);
+                    alert('POST 请求失败！');
                 }
             });
         }
     });
+
 });
 
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>collegeRoll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css"> -->
+    <script src="../../plugins/jquery-2.2.3.min.js"></script>
+    <!-- <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script> -->
+    <link rel="stylesheet" href="../../css/form.css">
+    <link rel="stylesheet" href="../../css/headCss.css">
+    <script type="text/javascript" src="../js/login.js"></script>
+    <script type="text/javascript" src="../js/manager/add.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+</head>
+<body>
+<!-- 顶部 -->
+<div class="head">
+    <div class="logo"></div>
+    <h2>选课系统</h2>
+    <div class="info" onmouseover="showMyInfo()" onmouseleave="hideMyInfo()">
+        <div onclick="showMyInfo()">
+            <span>欢迎您：</span>
+            <span id="xxxName">xxx</span>同学
+            <a onclick="logout();">退出</a>
+        </div>
+        <div id="myInfo">
+            <ul>
+                <li><a href="../student/stu_info.html" target="view_window" onclick="studentInfo()">我的信息</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="list-body">
+        <div class="title">添加超级管理员信息</div>
+        <form class="form-horizontal" role="form" id="edit-content">
+            <div class="form-group">
+                <div>
+                    <div>姓名:</div>
+                    <input type="text" id="stuName">
+                </div>
+                <div>
+                    <div>性别:</div>
+                    <input type="text" id="sex">
+                </div>
+                <div>
+                    <div>联系号码:</div>
+                    <input type="text" id="phone">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="btn-group">
+        <button class="" onclick="addSupMan()">录入</button>
+    </div>
+</div>
+</body>
+</html>

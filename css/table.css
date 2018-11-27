@@ -1,0 +1,15 @@
+.default-table{
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+.default-table td,th{
+   border:1px solid #ddd;
+   padding:2px 3px;
+   height: 30px;
+}
+
+
+.default-table a{
+    color: rgb(95, 131, 231);
+}
