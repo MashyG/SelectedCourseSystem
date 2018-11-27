@@ -9,3 +9,9 @@
     margin-bottom: 10px;
     border-radius: 5px;
 }
+#chooseNecessity{
+    color: #28a4c9;
+}
+#chooseNecessity:hover{
+    color: red;
+}

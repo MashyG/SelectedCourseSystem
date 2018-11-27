@@ -1,3 +1,4 @@
+/*
 function checkCourse(){
     var storage = window.localStorage;
     $('#xxxName').html(storage["user"]);
@@ -31,6 +32,7 @@ function checkCourse(){
         }
     });
 }
+*/
 
 function selectCourse(){
     $('div.all_info').load("selectCourseList.html");

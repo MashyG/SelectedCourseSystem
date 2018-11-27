@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <title>managerRollList</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css"> -->
     <script src="../../plugins/jquery-2.2.3.min.js"></script>
-    <!-- <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
-    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script> -->
     <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrapNav.css">
     <link rel="stylesheet" href="../../css/table.css">
     <link rel="stylesheet" href="../../css/list.css">
@@ -19,19 +15,18 @@
     <div id="content">
         <div class="list-body" style="padding: 10px;">
         <form class="searchBar">
-            <input type="text" class="form-control" id="supId" placeholder="学号">
+            <input type="text" class="form-control" id="supId" placeholder="工号">
             <input type="text" class="form-control" id="supName" placeholder="名字">
-            <input type="button" class="btn btn-default" onclick="checkOneSupermanager()" value="查询" />
+            <input type="button" class="btn btn-default" onclick="checkOneSuperManager()" value="查询" />
         </form>
         <table id="table" class="table table-bordered" border="0" cellspacing="0" cellpadding="0">
             <tr>
-                <th>学号</th>
+                <th>工号</th>
                 <th>姓名</th>
                 <th>性别</th>
                 <th>联系电话</th>
                 <th>创建人</th>
                 <th>创建时间</th>
-                <th>操作</th>
             </tr>
             <tbody class="tbBody" id="tbBody"></tbody>
         </table>

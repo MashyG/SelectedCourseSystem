@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
     <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
     <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script> -->
-    
+
     <script src="../../plugins/jquery-2.2.3.min.js"></script>
     <link rel="stylesheet" href="../../css/list.css">
     <script type="text/javascript" src="../../js/teacher.js"></script>
-    <script src="../../js/teacher/studentRollList.js"></script>
 </head>
 <body>
 <div class="list-body">
@@ -22,7 +21,7 @@
     <form class="navbar-form navbar-right" role="search">
         <input type="text" class="form-control" id="stuId" placeholder="学号">
         <input type="text" class="form-control" id="stuName" placeholder="名字">
-        <input type="button" class="btn btn-default" id="checkedStudent" value="查询" />
+        <input type="button" class="btn btn-default" id="checkedStudent" value="查询" onclick="checkedStudentInfo();" />
     </form>
     <table id="table" class="table table-bordered">
         <tr>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>studentRoll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
+    <script src="../../plugins/jquery-2.2.3.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script>
+
+    <link rel="stylesheet" href="../../css/list.css">
+    <script type="text/javascript" src="../../js/teacher.js"></script>
+</head>
+<body>
+<input type="button" class="btn btn-default" id="allCourse_info" value="所有课程信息" />
+<input type="button" class="btn btn-default" id="addCourse" value="添加所有课程" />
+<input type="button" class="btn btn-default" id="studentChoice" value="学生选课记录" />
+<input type="button" class="btn btn-default" id="studentCourse" value="学生可选课程" />
+<input type="button" class="btn btn-default" id="addStudentCourse" value="添加可选课程" />
+
+<div class="list-body" style="padding: 10px;">
+    <form class="navbar-form navbar-right" role="search">
+        <input type="text" class="form-control" id="couName" placeholder="课程名称">
+        <input type="button" class="btn btn-default" id="checkedStudentCourse" value="查询" />
+    </form>
+
+    <table id="table" class="table table-bordered">
+        <tr>
+            <th>课程号</th>
+            <th>课程名称</th>
+            <th>年级</th>
+            <th>专业</th>
+            <th>操作</th>
+        </tr>
+        <tbody class="tbBody"></tbody>
+    </table>
+</div>
+</body>
+</html>

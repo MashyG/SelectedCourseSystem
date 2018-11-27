@@ -331,7 +331,7 @@ $(document).ready(function () {
             type: 'GET',
             //发送请求的地址
             //url: 'http://192.168.137.1:8080/CourseSystem/superManager/selves?supId=' + $('#supId').val() + '&supName=' + $('#supName').val() ,
-            url: 'http://39.108.57.12:8080/CourseSystem/superManager/self?supId=' + $('#supId').val() + '&supName=' + $('#supName').val() ,
+            url: 'http://39.108.57.12:8080/CourseSystem/superManager/self',
             xhrFields:{
                 withCredentials:true
             },

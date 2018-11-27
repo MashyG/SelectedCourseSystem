@@ -15,8 +15,6 @@
     <script type="text/javascript" src="../../js/teacher.js"></script>
 </head>
 <body>
-<input type="button" class="btn btn-default" id="checkedTime" value="查询时间" />
-<input type="button" class="btn btn-default" id="setTime" value="添加时间" />
 <div class="list-body" style="padding: 30px;border-top: 1px solid #ccc;">
     <div id="title">修改选课时间</div>
     <form class="form-horizontal" role="form" id="edit-content">
@@ -34,7 +32,7 @@
                 <div>类型:</div><input type="text" placeholder="选课或退课" id="type">
             </div>
             <div>
-                <div></div><input type="button" class="btn btn-default" id="changeTimeInfo" value="修改" />
+                <div></div><input type="button" class="btn btn-default" id="changeTimeInfo" value="修改" onclick="changeTimeInfo1();" />
             </div>
         </div>
     </form>

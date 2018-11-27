@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>collegeRoll</title>
+    <title>addManager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../plugins/jquery-2.2.3.min.js"></script>
     <link rel="stylesheet" href="../../css/headCss.css">
-    <!-- <link rel="stylesheet" href="../../css/student/stuInfo.css"> -->
     <link rel="stylesheet" href="../../css/form.css">
     <script type="text/javascript" src="../../js/login.js"></script>
     <script type="text/javascript" src="../../js/common.js"></script>
-    <script type="text/javascript" src="../../js/manager/add.js"></script>
+    <script src="../../js/manager/managerIndex.js"></script>
 </head>
 <body>
 <!-- 顶部 -->
@@ -25,33 +24,33 @@
         </div>
         <div id="myInfo">
             <li>
-                <a href="managerInfo.html" target="view_window" onclick="managerInfo()">我的信息</a>
+                <a href="managerInfo.html" target="view_window">我的信息</a>
             </li>
             <li>
-                <a href="../modifyPasswordRollForm.html" target="view_window" onclick="modifyPassword()">修改密码</a>
+                <a href="../modifyPasswordRollForm.html" target="view_window">修改密码</a>
             </li>
         </div>
     </div>
 </div>
 <div class="content">
     <div class="list-body">
-        <div class="title">添加管理员信息</div>
+        <div id="title">添加管理员信息</div>
         <form class="form-horizontal" role="form" id="edit-content">
             <div class="form-group">
                 <div>
-                    <div>姓名:</div><input type="text" placeholder="姓名" id="manName">
+                    <div>姓名:</div><input type="text" placeholder="请输入姓名" id="manName">
                 </div>
                 <div>
-                    <div>性别:</div><input type="text" placeholder="性别" id="sex">
+                    <div>性别:</div><input type="text" placeholder="请输入性别" id="sex">
                 </div>
                 <div>
-                    <div>年级:</div><input type="text" placeholder="年级" id="graName">
+                    <div>年级:</div><input type="text" placeholder="请输入年级" id="graName">
                 </div>
                 <div>
-                    <div>职务:</div><input type="text" placeholder="职务" id="job">
+                    <div>职务:</div><input type="text" placeholder="请输入职务" id="job">
                 </div>
                 <div>
-                    <div>联系电话:</div><input type="text" placeholder="联系电话" id="phone">
+                    <div>联系电话:</div><input type="text" placeholder="请输入联系电话" id="phone">
                 </div>
             </div>
         </form>

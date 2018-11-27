@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>collegeRoll</title>
+    <title>addCollege</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../plugins/jquery-2.2.3.min.js"></script>
     <link rel="stylesheet" href="../../css/headCss.css">
     <link rel="stylesheet" href="../../css/student/stuInfo.css">
     <link rel="stylesheet" href="../../css/form.css">
     <script type="text/javascript" src="../../js/login.js"></script>
-    <script type="text/javascript" src="../../js/manager/add.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script src="../../js/manager/managerIndex.js"></script>
 </head>
 <body>
 <!-- 顶部 -->
@@ -24,10 +25,10 @@
         </div>
         <div id="myInfo">
             <li>
-                <a href="managerInfo.html" target="view_window" onclick="managerInfo()">我的信息</a>
+                <a href="managerInfo.html" target="view_window">我的信息</a>
             </li>
             <li>
-                <a href="../modifyPasswordRollForm.html" target="view_window" onclick="modifyPassword()">修改密码</a>
+                <a href="../modifyPasswordRollForm.html" target="view_window" >修改密码</a>
             </li>
         </div>
     </div>
@@ -39,7 +40,7 @@
             <div class="form-group">
                 <div>
                     <div>年级：</div>
-                    <input type="text" placeholder="请输入班级">
+                    <input type="text" placeholder="请输入年级">
                     </label>
                 </div>
                 <div>
@@ -48,7 +49,7 @@
                 </div>
                 <div>
                     <div>专业：</div>
-                    <input type="text" placeholder="专业" />
+                    <input type="text" placeholder="请输入专业" />
                 </div>
                 <div>
                     <div>班级：</div>
@@ -56,7 +57,7 @@
                 </div>
                 <div>
                     <div>日期：</div>
-                    <input class="date" type="date" value="请选择时间" />
+                    <input class="date" type="text" placeholder="请选择时间" />
                 </div>
             </div>
         </form>

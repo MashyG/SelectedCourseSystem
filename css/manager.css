@@ -22,9 +22,14 @@
     background: white url("../images/settings.jpg") no-repeat left center;
     cursor: pointer;
 }
-
 a{
     cursor: pointer;
+}
+a#withdraw,a#select{
+    color: blue;
+}
+a#withdraw:hover,a#select:hover{
+    color: red;
 }
 .all_info  .change_info:hover{
     text-decoration: underline;

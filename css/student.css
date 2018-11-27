@@ -3,9 +3,6 @@
     width: 90%;
     margin: 0 auto;
 }
-{
-    margin: 10px 30px 20px 50px;
-}
 #student_info,#select_course,#checkedCourse,#selectedCourse,#modify_password{
     margin: 10px 30px 10px 50px;
  }
@@ -30,6 +27,12 @@
 }
 a{
     cursor: pointer;
+}
+a#withdraw,a#select{
+    color: blue;
+}
+a#withdraw:hover,a#select:hover{
+    color: red;
 }
 
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>studentRoll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap-theme.css">
+    <script src="../../plugins/jquery-2.2.3.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="../../plugins/bootstrap-table/js/bootstrap-table.js"></script>
+
+    <link rel="stylesheet" href="../../css/list.css">
+    <script type="text/javascript" src="../../js/teacher.js"></script>
+</head>
+<body>
+<input type="button" class="btn btn-default" id="student_info" value="学生信息" />
+<input type="button" class="btn btn-default" id="addStudent_info" value="添加学生信息" />
+
+<div class="list-body" style="padding: 10px;">
+    <form class="navbar-form navbar-right" role="search">
+        <input type="text" class="form-control" id="stuId" placeholder="学号">
+        <input type="text" class="form-control" id="stuName" placeholder="名字">
+        <input type="button" class="btn btn-default" id="checkedStudent" value="查询" />
+    </form>
+
+    <table id="table" class="table table-bordered">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年级</th>
+            <th>学院</th>
+            <th>专业</th>
+            <th>班级</th>
+            <th>联系号码</th>
+            <th>录入时间</th>
+            <th>操作</th>
+        </tr>
+        <tbody class="tbBody"></tbody>
+    </table>
+</div>
+</body>
+</html>

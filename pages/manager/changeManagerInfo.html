@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>changeInfo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../plugins/jquery-2.2.3.min.js"></script>
+    <link rel="stylesheet" href="../../css/form.css">
+    <script type="text/javascript" src="../../js/manager/managerIndex.js"></script>
+</head>
+<body>
+<div class="list-body">
+    <form class="form-horizontal" role="form" id="edit-content">
+        <div id="title">修改管理员信息</div>
+        <div class="form-group">
+            <div>
+                <div>姓名:</div><input type="text" placeholder="姓名" id="manName">
+            </div>
+            <div>
+                <div>性别:</div><input type="text" placeholder="性别" id="sex">
+            </div>
+            <div>
+                <div>联系电话:</div><input type="text" placeholder="联系电话" id="phone">
+            </div>
+            <div>
+                <div>年级:</div><input type="text" placeholder="年级" id="graName">
+            </div>
+            <div>
+                <div>职务:</div><input type="text" placeholder="职务" id="job">
+            </div>
+            <div>
+                <div></div><input type="button" class="btn btn-default" id="changeManagerInfo" value="修改" onclick="changeManagerInfo1();" />
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

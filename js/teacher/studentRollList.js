@@ -1,3 +1,4 @@
+//查询所有学生信息
 $(document).ready(function(){
     $.ajax({
         //请求方式
