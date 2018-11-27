@@ -50,7 +50,7 @@ function TeacherInfo() {
     });
 
 }
-//修改教务员个人信息(电话号码)?
+//修改教务员个人信息(电话号码)
 function changeTeacherInfo() {
     $('div.all_info').load("changeTeacherInfo.html");
     $.ajax({
@@ -87,7 +87,7 @@ function changeTeacherPhone() {
                 //请求方式
                 type: 'PUT',
                 //发送请求的地址
-                url: "http://39.108.57.12:8080/CourseSystem/manager/self/modifyPhone?phone=" + $('#phone').val(),
+                url: "http://39.108.57.12:8080/CourseSystem/manager/self?phone=" + $('#phone').val(),
                 xhrFields: {
                     withCredentials: true
                 },
@@ -145,7 +145,7 @@ function studentInfo() {
                 tbBody += "<tr><td>" + n.stuId + "</td>" + "<td>" + n.stuName + "</td>" + "<td>" + n.sex + "</td>"
                     + "<td>" + n.graName + "</td>" + "<td>" + n.acaName + "</td>" + "<td>" + n.proName + "</td>" +
                     "<td>" + n.claName + "</td>" + "<td>" + n.phone + "</td>" + "<td>" + n.createDate + "</td><td>" +
-                    "<a onclick='delStudent(this," + n.stuId + ")'>删除</a> <a target='_parent' onclick='editStudent(" + n.stuId + ")'>修改</a></td></tr>";
+                    "<a onclick='delStudent(this," + n.stuId + ")'>删除</a>  <a target='_parent' onclick='editStudent(" + n.stuId + ")'>修改</a></td></tr>";
                 $(".tbBody").append(tbBody);
             });
         },
@@ -822,6 +822,35 @@ function checkedStudentCourseInfo() {
         }
     });
 }
+//为学生自动选择必选课程
+function checkedChooseNecessity() {
+    let r = confirm("是否为学生自动选择必选课程？");
+    if(r == true){
+        $.ajax({
+            //请求方式
+            type: 'GET',
+            //发送请求的地址
+            url: "http://39.108.57.12:8080/CourseSystem/manager/chooseNecessity" ,
+            xhrFields:{
+                withCredentials:true
+            },
+            crossDomain:true,
+            //服务器返回的数据类型
+            dataType: 'json',
+            success:function(data) {
+                //请求成功函数内容
+                //alert('请求成功!');
+                console.log(data.msg);
+                alert(data.msg);
+            },
+            error: function (data) {
+                //请求失败函数内容
+                //alert('查询失败!!');
+                console.log(data.result);
+            }
+        });
+    }
+}
 //添加可选课程
 function addStudentCourseInfo() {
     $('div.all_info').load("addStudentCourseRollForm.html");
@@ -1002,6 +1031,40 @@ function changeSelectedCourseInfo1(){
     });
 }
 
+//导入Excel文件
+function upload_container() {
+    $('div.all_info').load('upload_container.html');
+}
+function saveFile(){
+    let formData = new FormData();
+    let name = $("#articleImageFile").val();
+    formData.append("file",$("#articleImageFile")[0].files[0]);
+    formData.append("name",name);//这个地方可以传递多个参数
+    $.ajax({
+        type : 'POST',
+        url : "http://39.108.57.12:8080/CourseSystem/manager/student/excel",
+        xhrFields:{
+            withCredentials:true
+        },
+        crossDomain:true,
+        async : false,
+        data : formData,
+        // 告诉jQuery不要去处理发送的数据
+        processData : false,
+        // 告诉jQuery不要去设置Content-Type请求头
+        contentType : false,
+        beforeSend:function(){
+            console.log("正在进行，请稍候");
+        },
+        success : function(responseText) {
+            if(responseText.result=="success"){
+                alert("导入成功");
+            }else{
+                alert("导入失败");
+            }
+        }
+    });
+}
 
 //时间设定
 //查询时间
@@ -1079,8 +1142,8 @@ function timeInfoRoll() {
             dataType: 'json',
             success: function (data) {
                 //请求成功函数内容
-                console.log(data.result);
-                if (data.result == 'success') {
+                console.log(data.msg);
+                if (data.msg == 'success') {
                     alert('录入成功!');
                     $('div.all_info').load("timeRollForm.html");
                 }
@@ -1090,7 +1153,6 @@ function timeInfoRoll() {
             },
             error: function (data) {
                 //请求失败函数内容
-                console.log(data);
             }
         });
     }

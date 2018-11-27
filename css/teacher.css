@@ -5,7 +5,7 @@
 }
 #teacherInfo,#studentManage,#courseManage,#timeSet,#student_info,#allCourse_info,#addCourse,
 #selectedCourse_set,#droppedCourse_set,#checkedTime,#setTime,#addStudent_info,#modify_password,#studentChoice,
-#studentCourse,#addStudentCourse{
+#studentCourse,#addStudentCourse,#uploadContainer{
     margin: 10px 30px 20px 50px;
 }
 .all_info{

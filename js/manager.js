@@ -302,6 +302,7 @@ function delClass(i,claId) {
             dataType: 'json',
             success:function(data) {
                 //请求成功函数内容
+                console.log(data.msg);
                 console.log(data.result);
                 if(data.result == 'success'){
                     alert('删除成功！');
@@ -429,31 +430,33 @@ function teacherInfoRoll() {
 }
 //删除管理员
 function delManager(i,manId){
-    alert("是否删除该管理员?");
-    i.parentNode.parentNode.remove();
-    $.ajax({
-        //请求方式
-        type: 'DELETE',
-        //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager?manId=' + manId  ,
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        //服务器返回的数据类型
-        dataType: 'json',
-        success:function(data) {
-            //请求成功函数内容
-            console.log(data.result);
-            if(data.result == 'success'){
-                alert('删除成功！');
+    let r = confirm("是否删除该管理员？");
+    if(r == true) {
+        i.parentNode.parentNode.remove();
+        $.ajax({
+            //请求方式
+            type: 'DELETE',
+            //发送请求的地址
+            url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager?manId=' + manId,
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //服务器返回的数据类型
+            dataType: 'json',
+            success: function (data) {
+                //请求成功函数内容
+                console.log(data.result);
+                if (data.result == 'success') {
+                    alert('删除成功！');
+                }
+            },
+            error: function (data) {
+                //请求失败函数内容
+                console.log(data.result);
             }
-        },
-        error : function(data){
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
+        });
+    }
 }
 //修改管理员
 var managerId;
@@ -503,6 +506,7 @@ function changeManagerInfo1(){
             },
             crossDomain: true,
             data: JSON.stringify({
+                manId : managerId,
                 manName: $('#manName').val(),
                 sex: $('#sex').val(),
                 phone: $('#phone').val(),

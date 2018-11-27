@@ -1,3 +1,16 @@
+$(function () {
+    $('#xxxName').mouseenter(function () {
+        $('#modify_password').css('display','block');
+        $('#modify_password').css('color','black');
+        $('#modify_password').mouseenter(function () {
+                $('#modify_password').css('display','block');
+                $('#modify_password').css('color','red');
+        }).mouseleave(function () {
+                $('#modify_password').css('display','none');
+                $('#modify_password').css('color','black');
+            });
+    });
+});
 
 //用户退出时返回登陆页面
 function logout() {
