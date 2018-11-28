@@ -2,12 +2,12 @@ $(document).ready(function () {
     var storage = window.localStorage;
     $('#xxxName').html(storage["user"]);
 });
-function showMyInfo(){
+/* function showMyInfo(){
     $('#myInfo').css("display","inline-flex");
 }
 function hideMyInfo(){
     $('#myInfo').css("display","none");
-}
+} */
 //修改学生个人信息(电话号码)
 function editInfo(){
     $('#phone').removeAttr("readonly");

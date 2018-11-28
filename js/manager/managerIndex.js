@@ -1,6 +1,9 @@
 $(document).ready(function () {
     var storage = window.localStorage;
     $('#xxxName').html(storage["user"]);
+    $('div.all_info').load("college.html #content");
+    $('#tbBody').html("");
+    getCollege();
 });
 //查询所有班级信息
 function getCollege() {

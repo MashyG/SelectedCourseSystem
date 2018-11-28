@@ -24,9 +24,3 @@ $(document).ready(function(){
         }
     });
 })
-function showMyInfo(){
-    $('#myInfo').css("display","inline-flex");
-}
-function hideMyInfo(){
-    $('#myInfo').css("display","none");
-}

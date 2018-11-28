@@ -1,3 +1,6 @@
+$(document).ready(function(){
+    studentInfo();
+})
 //获取id，并写入
 var loc = window.location.href;
 var n2 = loc.indexOf("=");//取得=号的位置
@@ -36,7 +39,8 @@ function saveInfo(){
                 console.log(data.result);
                 if (data.result == 'success') {
                     alert('修改成功！');
-                    $('div.all_info').load("stu_info.html");
+                    window.close()
+                    $('div.all_info').load("teacherIndex.html");
                 }
             },
             error: function (data) {
@@ -54,7 +58,7 @@ function saveInfo(){
 //学生管理
 //查询所有学生信息
 function studentInfo() {
-    $('div.all_info').load("studentRollList.html");
+    $('div.all_info').load("studentRollList.html #list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -87,7 +91,7 @@ function studentInfo() {
 }
 //查询个别学生信息
 function checkedStudentInfo() {
-    $('div.all_info').load("studentRollList.html");
+    $('div.all_info').load("studentRollList.html #list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -154,7 +158,7 @@ function delStudent(i,stuId){
 //修改学生信息
 function editStudent(stuId) {
     studentId = stuId;
-    $('div.all_info').load('changeStudentInfo.html');
+    $('div.all_info').load('changeStudentInfo.html .list-body');
     $.ajax({
         //请求方式
         type: 'GET',
@@ -238,7 +242,7 @@ function changeStudentInfo1() {
 }
 //添加学生信息
 function addStudentInfo() {
-    $('div.all_info').load("addStudent.html");
+    $('div.all_info').load("addStudent.html .list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -270,24 +274,31 @@ function addStudentInfo1() {
     let reg = /^1[3|4|5|7|8][0-9]{9}$/;     //联系号码的正则表达式
     if($('#stuName').val() == ''){
         alert("学生姓名不能为空！");
+        return;
     }
     if($('#sex').val() == ''){
         alert("性别不能为空！");
+        return;
     }
     if($('#graName').val() == ''){
         alert("年级不能为空！");
+        return;
     }
     if($('#acaName').val() == ''){
         alert("学院不能为空！");
+        return;
     }
     if($('#proName').val() == ''){
         alert("专业不能为空！");
+        return;
     }
     if($('#claName').val() == ''){
         alert("班级不能为空！");
+        return;
     }
     if($('#phone').val() == ''){
         alert("联系电话不能为空！");
+        return;
     }
     else if(reg.test(studentPhone)){
         $.ajax({
@@ -336,7 +347,7 @@ function addStudentInfo1() {
 }
 //导入Excel文件
 function upload_container() {
-    $('div.all_info').load('upload_container.html');
+    $('div.all_info').load('upload_container.html .navbar-left');
 }
 function saveFile(){
     let formData = new FormData();
@@ -373,7 +384,7 @@ function saveFile(){
 
 //查询所有课程信息
 function allCourseInfo() {
-    $('div.all_info').load("courseRollList.html");
+    $('div.all_info').load("courseRollList.html #list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -406,7 +417,7 @@ function allCourseInfo() {
 }
 //查询个别课程信息
 function checkedCourseInfo() {
-    $('div.all_info').load("courseRollList.html");
+    $('div.all_info').load("courseRollList.html #list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -473,7 +484,7 @@ function delAllCourse(i, couId) {
 //修改所有课程信息
 function editAllCourse(couId) {
     courseId = couId;
-    $('div.all_info').load('changeAllCourseInfo.html');
+    $('div.all_info').load('changeAllCourseInfo.html .list-body');
     $.ajax({
         //请求方式
         type: 'GET',
@@ -540,7 +551,7 @@ function changeAllCourseInfo1() {
 }
 //添加课程信息
 function addCourseInfo() {
-    $('div.all_info').load("courseRollForm.html");
+    $('div.all_info').load("courseRollForm.html .list-body");
 }
 function courseInfoRoll() {
     if($('#couName').val() == ''){
@@ -600,7 +611,7 @@ function courseInfoRoll() {
 }
 //查询学生选课记录
 function studentChoiceInfo() {
-    $('div.all_info').load("studentChoiceRollList.html");
+    $('div.all_info').load("studentChoiceRollList.html #list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -639,7 +650,7 @@ function studentChoiceInfo() {
 }
 //查询个别学生选课记录
 function checkedChoiceInfo() {
-    $('div.all_info').load("studentChoiceRollList.html");
+    $('div.all_info').load("studentChoiceRollList.html .list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -713,7 +724,7 @@ function delChoice(i,choiceId) {
 }
 //查询学生可选课程
 function studentCourseInfo() {
-    $('div.all_info').load("studentCourseRollList.html");
+    $('div.all_info').load("studentCourseRollList.html #list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -745,7 +756,7 @@ function studentCourseInfo() {
 }
 //查询学生个别可选课程
 function checkedStudentCourseInfo() {
-    $('div.all_info').load("studentCourseRollList.html");
+    $('div.all_info').load("studentCourseRollList.html #list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -806,7 +817,7 @@ function checkedChooseNecessity() {
 }
 //添加可选课程
 function addStudentCourseInfo() {
-    $('div.all_info').load("addStudentCourseRollForm.html");
+    $('div.all_info').load("addStudentCourseRollForm.html .list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -902,7 +913,7 @@ function delSelectedCourse(i, id) {
 //修改可选课程信息
 function editSelectedCourse(id) {
     s_id = id;
-    $('div.all_info').load('changeSelectedCourseInfo.html');
+    $('div.all_info').load('changeSelectedCourseInfo.html .list-body');
     $.ajax({
         //请求方式
         type: 'GET',
@@ -969,7 +980,7 @@ function changeSelectedCourseInfo1() {
 //时间设定
 //查询时间
 function checkedTimeInfo() {
-    $('div.all_info').load("timeRollList.html");
+    $('div.all_info').load("timeRollList.html #list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -1001,7 +1012,7 @@ function checkedTimeInfo() {
 }
 //添加时间
 function addTimeInfo() {
-    $('div.all_info').load("timeRollForm.html");
+    $('div.all_info').load("timeRollForm.html .list-body");
     $.ajax({
         //请求方式
         type: 'GET',
@@ -1031,15 +1042,19 @@ function addTimeInfo() {
 function timeInfoRoll() {
     if($('#graName').val() == ''){
         alert("年级不能为空！");
+        return;
     }
     if($('#start').val() == ''){
         alert("开始时间不能为空！");
+        return;
     }
     if($('#end').val() == ''){
         alert("结束时间不能为空！");
+        return;
     }
     if($('#type').val() == ''){
         alert("类型不能为空！");
+        return;
     }
     if($('#graName').val() != '' && $('#start').val() != '' && $('#end').val() != '' && $('#type').val() != '') {
         $.ajax({
@@ -1115,7 +1130,7 @@ function delTime(i, timeId) {
 //修改时间
 function editTime(timeId) {
     time_id = timeId;
-    $('div.all_info').load('changeTimeInfo.html');
+    $('div.all_info').load('changeTimeInfo.html .list-body');
     $.ajax({
         //请求方式
         type: 'GET',

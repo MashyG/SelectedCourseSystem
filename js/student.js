@@ -1,4 +1,7 @@
-
+$(document).ready(function(){
+    $('div.all_info').load("checkCourseList.html .list-body");
+    getAllCourse();
+})
 //获取id，并写入
 var loc = window.location.href;
 var n2 = loc.indexOf("=");//取得=号的位置
@@ -8,29 +11,33 @@ var name = loc.substr(n2+1, n3-n2-1);//从=号后面且&号之前的内容
 //查询我的课程
 function checkCourse() {
     $('div.all_info').load("checkCourseList.html");
+    getAllCourse();
+}
+
+function getAllCourse(){
     $.ajax({
         //请求方式
         type: 'GET',
         //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/student/choice'  ,
-        xhrFields:{
-            withCredentials:true
+        url: 'http://39.108.57.12:8080/CourseSystem/student/choice',
+        xhrFields: {
+            withCredentials: true
         },
-        crossDomain:true,
+        crossDomain: true,
         //服务器返回的数据类型
         dataType: 'json',
-        success:function(data) {
+        success: function (data) {
             //请求成功函数内容
             //alert('请求成功!');
             console.log(data.result);
-            $.each(data.result, function(i, n) {
+            $.each(data.result, function (i, n) {
                 let tbBody = "";
-                if(!n.withdrawDate){
+                if (!n.withdrawDate) {
                     tbBody += "<tr><td>" + n.choiceId + "</td>" + "<td>" + n.stuId + "</td><td>" + n.couName +
-                        "</td><td>" + n.chooseDate + "</td><td>--</td><td><a id='withdraw' target='_parent' onclick='withdraw("+
+                        "</td><td>" + n.chooseDate + "</td><td>--</td><td><a id='withdraw' target='_parent' onclick='withdraw(" +
                         n.choiceId + ")'>退选</a></td></tr>";
                 }
-                else{
+                else {
                     tbBody += "<tr><td>" + n.choiceId + "</td>" + "<td>" + n.stuId + "</td><td>" + n.couName +
                         "</td><td>" + n.chooseDate + "</td><td>" + n.withdrawDate + "</td><td>--</a></td></tr>";
                 }
@@ -38,7 +45,7 @@ function checkCourse() {
             });
 
         },
-        error:function(data){
+        error: function (data) {
             //请求失败函数内容
             console.log(data.result);
         }
