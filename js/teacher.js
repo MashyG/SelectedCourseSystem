@@ -39,8 +39,7 @@ function saveInfo(){
                 console.log(data.result);
                 if (data.result == 'success') {
                     alert('修改成功！');
-                    window.close()
-                    $('div.all_info').load("teacherIndex.html");
+                    window.close();
                 }
             },
             error: function (data) {
@@ -142,6 +141,7 @@ function delStudent(i,stuId){
                 //请求成功函数内容
                 if(data.result == 'success'){
                     alert('删除成功！');
+                    studentInfo();
                 }
                 else{
                     alert(data.msg);
@@ -223,7 +223,7 @@ function changeStudentInfo1() {
                 //请求成功函数内容
                 if(data.result == 'success'){
                     alert('修改成功!');
-                    self.location.load = -1;
+                    studentInfo();
                 }
                 else{
                     alert(data.msg);
@@ -328,7 +328,7 @@ function addStudentInfo1() {
                 console.log(data.result);
                 if (data.result == 'success') {
                     alert('添加成功!');
-                    $('div.all_info').load("addStudentRollForm.html");
+                    studentInfo();
                 }
                 else{
                     alert(data.msg);
@@ -373,6 +373,7 @@ function saveFile(){
         success : function(responseText) {
             if(responseText.result=="success"){
                 alert("导入成功");
+                studentInfo();
             }else{
                 alert("导入失败");
             }
@@ -468,6 +469,7 @@ function delAllCourse(i, couId) {
                 //请求成功函数内容
                 if(data.result == 'success'){
                     alert('删除成功！');
+                    allCourseInfo();
                 }
                 else{
                     alert(data.msg);
@@ -540,7 +542,7 @@ function changeAllCourseInfo1() {
             //请求成功函数内容
             if (data.result == 'success') {
                 alert('修改成功!');
-                self.location.load = -1;
+                allCourseInfo();
             }
         },
         error: function (data) {
@@ -595,7 +597,7 @@ function courseInfoRoll() {
                 //请求成功函数内容
                 if(response.result == 'success'){
                     alert('录入成功!');
-                    $('div.all_info').load("courseRollForm.html");
+                    allCourseInfo();
                 }
                 else{
                     alert(data.msg);
@@ -709,6 +711,7 @@ function delChoice(i,choiceId) {
                 console.log(data.result);
                 if (data.result == 'success') {
                     alert('删除成功！');
+                    studentChoiceInfo();
                 }
                 else{
                     alert(data.msg);
@@ -806,6 +809,7 @@ function checkedChooseNecessity() {
                 //alert('请求成功!');
                 console.log(data.msg);
                 alert(data.msg);
+                studentCourseInfo();
             },
             error: function (data) {
                 //请求失败函数内容
@@ -868,7 +872,7 @@ function addStudentSelectedCourseInfo() {
             console.log(response.result);
             if (response.result == 'success') {
                 alert('录入成功!');
-                $('div.all_info').load("addStudentCourseRollForm.html");
+                studentCourseInfo();
             }
         },
         error: function (data) {
@@ -897,6 +901,7 @@ function delSelectedCourse(i, id) {
                 //请求成功函数内容
                 if (data.result == 'success') {
                     alert('删除成功！');
+                    studentCourseInfo();
                 }
                 else {
                     alert(data.msg);
@@ -966,7 +971,7 @@ function changeSelectedCourseInfo1() {
             console.log(data.result);
             if (data.result == 'success') {
                 alert('修改成功!');
-                $('div.all_info').load("changeSelectedCourseInfo.html");
+                studentCourseInfo();
             }
         },
         error: function (data) {
@@ -1081,7 +1086,7 @@ function timeInfoRoll() {
                 console.log(data.result);
                 if (data.msg == 'success') {
                     alert('录入成功!');
-                    $('div.all_info').load("timeRollForm.html");
+                    checkedTimeInfo();
                 }
                 else {
                     alert(data.msg);
@@ -1114,6 +1119,7 @@ function delTime(i, timeId) {
                 //请求成功函数内容
                 if (data.result == 'success') {
                     alert('删除成功！');
+                    checkedTimeInfo();
                 }
                 else {
                     alert(data.msg);
@@ -1184,7 +1190,7 @@ function changeTimeInfo1() {
             console.log(data.result);
             if (data.result == 'success') {
                 alert('修改成功!');
-                $('div.all_info').load("changeTimeInfo.html");
+                checkedTimeInfo();
             }
         },
         error: function (data) {

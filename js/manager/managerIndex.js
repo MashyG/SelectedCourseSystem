@@ -110,9 +110,22 @@ function delClass(i, claId) {
         });
     }
 }
-//添加班级?班级已存在？
+//添加班级
 function addCollege() {
-    $.ajax({
+    getCollege();
+    sendJson = JSON.stringify({  //解决错误码400
+        'graName': $('#graName').val(),
+        'acaName': $('#acaName').val(),
+        'proName': $('#proName').val(),
+        'claName': $('#claName').val(),
+    });
+
+    if ($('#graName').val() == undefined || $('#acaName').val() == undefined || $('#proName').val() == undefined || $('#claName').val() == undefined) {
+        alert("请将信息补充完整");
+        return;
+    }
+    else {
+        $.ajax({
         //请求方式
         type: 'POST',
         //发送请求的地址
@@ -122,13 +135,7 @@ function addCollege() {
         },
         crossDomain:true,
         //数据
-        data: JSON.stringify({  //解决错误码400
-            'graName' :       $('#graName').val(),
-            'acaName' :           $('#acaName').val(),
-            'proName' :       $('#proName').val(),
-            'claName' :       $('#claName').val(),
-            'createDate' :       $('#createDate').val()
-        }),
+            data: sendJson,
         contentType: 'application/json;charset=UTF-8',//解决错误码415
         //服务器返回的数据类型
         dataType : 'json',
@@ -137,7 +144,9 @@ function addCollege() {
             console.log(data.result);
             if(data.result == 'success'){
                 alert('录入成功!');
-                $('div.all_info').load("addCollege.html");
+                $('div.all_info').load("college.html #content");
+                $('#tbBody').html("");
+                getCollege();
             }
             else{
                 alert(data.msg);
@@ -148,6 +157,8 @@ function addCollege() {
             console.log(data);
         }
     });
+    }
+    
 }
 
 //查询管理员信息
@@ -171,8 +182,7 @@ function getManager() {
                 let tbBody = "";
                 tbBody += "<tr><td>" + n.manId + "</td>" + "<td>" + n.manName + "</td>" + "<td>" + n.sex + "</td>"
                     +"<td>" + n.graName + "</td>" + "<td>"+ n.job + "</td>" + "<td>"+ n.phone + "</td>" + "<td>"+ n.createDate + "</td><td>"
-                    + "<a id='withdraw' onclick='delManager(this,"+ n.manId + ")'>删除</a> <a id='select' target='_parent' onclick='editManager("
-                    + n.manId + ")'>修改</a></td></tr>";
+                    + "<a id='withdraw' onclick='delManager(this," + n.manId + ")'>删除</a> <a id='select' onclick='editManager("+ n.manId + ")'>修改</a></td></tr>";
                 $(".tbBody").append(tbBody);
             });
         },
@@ -285,7 +295,7 @@ function delManager(i, manId) {
     }
 }
 //修改管理员
-var managerId;
+/* var managerId;
 function editManager(manId){
     managerId = manId;
     $('div.all_info').load("changeManagerInfo.html");
@@ -362,6 +372,76 @@ function changeManagerInfo1(){
     else{
         alert("联系号码有误，请重新输入");
     }
+} */
+//修改管理员
+var managerId;
+function editManager(manId) {
+    managerId = manId;
+    $('div.all_info').load('changeManagerInfo.html .list-body');    
+    $.ajax({
+        //请求方式
+        type: 'GET',
+        //发送请求的地址
+        url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager?manId=' + managerId,
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        //服务器返回的数据类型
+        dataType: 'json',
+        success: function (data) {
+            //请求成功函数内容
+            console.log(data.result);
+            $.each(data.result, function (i, n) {
+                $('#manId').val(n.manId);
+                $('#manName').val(n.manName);
+                $('#sex').val(n.sex);
+                $('#graName').val(n.graName);
+                $('#job').val(n.job);
+                $('#phone').val(n.phone);
+            });
+        },
+        error: function (data) {
+            //请求失败函数内容
+            console.log(data);
+        }
+    });
+}
+function editManager1() {
+    $.ajax({
+        //请求方式
+        type: 'PUT',
+        //发送请求的地址
+        url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager',
+        xhrFields: {
+            withCredentials: true
+        },
+        data: JSON.stringify({
+            manId: $('#manId').val(),
+            supName: $('#manName').val(),
+            sex: $('#sex').val(),
+            phone: $('#phone').val(),
+            graName: $('#graName').val(),
+            job: $('#job').val()
+        }),
+        contentType: 'application/json;charset=UTF-8',//解决错误码415
+        //服务器返回的数据类型
+        dataType: 'json',
+        success: function (data) {
+            //请求成功函数内容
+            if (data.result == 'success') {
+                alert('修改成功!');
+                $('div.all_info').load("manager.html #content");
+                $('#tbBody').html("");
+                getManager();
+            }
+            /* $('div.all_info').load("changeManagerInfo.html"); */
+        },
+        error: function () {
+            //请求失败函数内容
+            alert('请求失败!!');
+        }
+    });
 }
 
 
@@ -613,4 +693,5 @@ function add(){
         window.open("addSupermanager.html");
     }
 }
+
 
