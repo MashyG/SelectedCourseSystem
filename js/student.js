@@ -1,32 +1,7 @@
 $(document).ready(function(){
     $('div.all_info').load("checkCourseList.html .list-body");
     getAllCourse();
-    var storage = window.localStorage;
-    $.ajax({
-        //请求方式
-        type: 'GET',
-        //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/student/self?stuId=' + storage["user"]  ,
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        contentType: 'application/json;charset=UTF-8',//解决错误码415
-        //服务器返回的数据类型
-        dataType: 'json',
-        success:function(data) {
-            //请求成功函数内容
-            //alert('请求成功!');
-            console.log(data.result);
-            $.each(data.result, function(i, n) {
-                $('#xxxName').html(n.stuName);
-            });
-        },
-        error : function(data){
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
+
 })
 
 //查询我的课程

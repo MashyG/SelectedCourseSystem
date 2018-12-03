@@ -38,7 +38,7 @@ function modifyPassword(){
         return;
     } 
     if ($('#newPWD2').val() == ''){
-        alert("请确认密码！");
+        alert("请确认新密码！");
         return;
     }
     

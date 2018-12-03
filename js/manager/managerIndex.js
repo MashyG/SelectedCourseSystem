@@ -1,30 +1,4 @@
 $(document).ready(function () {
-    var storage = window.localStorage;
-    $.ajax({
-        //请求方式
-        type: 'GET',
-        //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/superManager/self?supId=' + storage["user"]  ,
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        contentType: 'application/json;charset=UTF-8',//解决错误码415
-        //服务器返回的数据类型
-        dataType: 'json',
-        success:function(data) {
-            //请求成功函数内容
-            //alert('请求成功!');
-            console.log(data.result);
-            $.each(data.result, function(i, n) {
-                $('#xxxName').html(n.supName);
-            });
-        },
-        error : function(data){
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
     $('div.all_info').load("college.html #content");
     $('#tbBody').html("");
     getCollege();
@@ -416,7 +390,8 @@ function changeManagerPWD1() {
                 //请求方式
                 type: 'PUT',
                 //发送请求的地址
-                url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager/modifyPassword?username=' + managerId + '&password=' + $('#newPWD1').var(),
+                url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager/modifyPassword?username='
+                        + managerId + '&password=' + $('#newPWD1').val(),
                 xhrFields:{
                     withCredentials:true
                 },
@@ -429,7 +404,7 @@ function changeManagerPWD1() {
                     console.log("test----" + JSON.stringify(data));
                     if(data.result == 'success'){
                         alert('修改成功!');
-                        studentInfo();
+                        editManagerPWD();
                     }
                     else{
                         alert(data.msg);

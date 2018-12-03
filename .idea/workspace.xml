@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b69b5f0c-b693-4130-bc65-04aa751a0630" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/manager/changeManagerPWD.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/teacher/changeStudentPWD.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/logout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/manager/managerIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/manager/managerIndex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/student.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/student.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/student/stuFun.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/student/stuFun.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/teacher.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/teacher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/manager/addCollege.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/manager/addCollege.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/manager/changeManagerInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/manager/changeManagerInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/manager/managerInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/manager/managerInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manager/managerIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/manager/managerIndex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manager/modifyPasswordRollForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/manager/modifyPasswordRollForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/student/modifyPasswordRollForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/modifyPasswordRollForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/student/stu_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/stu_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/teacher/addStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/addStudent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/teacher/addStudentCourseRollForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/addStudentCourseRollForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/teacher/changeSelectedCourseInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/changeSelectedCourseInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/teacher/changeStudentInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/changeStudentInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/teacher/changeTimeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/changeTimeInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/teacher/teacherInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/teacherInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/teacher/timeRollForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/timeRollForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/student/studentIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/studentIndex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/teacher/modifyPasswordRollForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/modifyPasswordRollForm.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,81 +42,7 @@
     <favorites_list name="selectedCourseSystem" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="managerIndex.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/manager/managerIndex.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="419" column="27" lean-forward="true" selection-start-line="419" selection-start-column="27" selection-end-line="419" selection-end-column="27" />
-              <folding>
-                <element signature="e#82#794#0" />
-                <element signature="n#!!block;n#getCollege#0" />
-                <element signature="n#!!block;n#checkOneCollege#0" />
-                <element signature="n#!!block;n#delClass#0" />
-                <element signature="n#!!block;n#addCollege#0" />
-                <element signature="n#!!block;n#getManager#0" />
-                <element signature="n#!!block;n#checkOneManager#0" />
-                <element signature="n#!!block;n#delManager#0" />
-                <element signature="n#!!block;n#editManager#0" />
-                <element signature="n#!!block;n#editManagerPWD#0" />
-                <element signature="n#!!block;n#getSuperManager#0" />
-                <element signature="n#!!block;n#checkOneSuperManager#0" />
-                <element signature="n#!!block;n#editInfo#0" />
-                <element signature="n#!!block;n#saveInfo#0" />
-                <element signature="e#19940#20832#0" />
-                <element signature="n#!!block;n#manage#0" />
-                <element signature="n#!!block;n#check#0" />
-                <element signature="n#!!block;n#add#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="teacher.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/teacher.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="306" column="33" selection-start-line="306" selection-start-column="33" selection-end-line="306" selection-end-column="33" />
-              <folding>
-                <element signature="e#31#705#0" />
-                <element signature="e#787#855#0" />
-                <element signature="e#875#1868#0" />
-                <element signature="e#1911#3190#0" />
-                <element signature="e#3232#4574#0" />
-                <element signature="e#4612#5507#0" />
-                <element signature="e#5545#6637#0" />
-                <element signature="e#8730#8797#0" />
-                <element signature="e#10312#11036#0" />
-                <element signature="e#13171#13240#0" />
-                <element signature="e#13260#14148#0" />
-                <element signature="e#14195#15371#0" />
-                <element signature="e#15412#16619#0" />
-                <element signature="e#16661#17557#0" />
-                <element signature="e#17599#18552#0" />
-                <element signature="e#18585#20355#0" />
-                <element signature="e#20390#20455#0" />
-                <element signature="e#20482#22269#0" />
-                <element signature="e#22310#23740#0" />
-                <element signature="e#23783#25270#0" />
-                <element signature="e#25313#26341#0" />
-                <element signature="e#26382#27472#0" />
-                <element signature="e#27522#28643#0" />
-                <element signature="e#28692#29475#0" />
-                <element signature="e#29517#30255#0" />
-                <element signature="e#30296#31799#0" />
-                <element signature="e#31845#32751#0" />
-                <element signature="e#32795#33767#0" />
-                <element signature="e#33805#35089#0" />
-                <element signature="e#35133#36233#0" />
-                <element signature="e#36264#36990#0" />
-                <element signature="e#38606#39512#0" />
-                <element signature="e#39546#40391#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -163,9 +84,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/teacher/studentMessage.js" />
-        <option value="$PROJECT_DIR$/js/teacher/teacherIndex.js" />
-        <option value="$PROJECT_DIR$/pages/teacher/studentList.html" />
         <option value="$PROJECT_DIR$/js/teacher/studentList.js" />
         <option value="$PROJECT_DIR$/css/student/stuInfo.css" />
         <option value="$PROJECT_DIR$/js/student/course.js" />
@@ -184,12 +102,9 @@
         <option value="$PROJECT_DIR$/pages/manager/manager.html" />
         <option value="$PROJECT_DIR$/pages/manager/superManager.html" />
         <option value="$PROJECT_DIR$/css/modifyPwd.css" />
-        <option value="$PROJECT_DIR$/js/logout.js" />
         <option value="$PROJECT_DIR$/pages/manager/addSupermanager.html" />
         <option value="$PROJECT_DIR$/pages/manager/addManagerForm.html" />
         <option value="$PROJECT_DIR$/pages/modifyPasswordRollForm.html" />
-        <option value="$PROJECT_DIR$/pages/student/studentIndex.html" />
-        <option value="$PROJECT_DIR$/pages/manager/managerIndex.html" />
         <option value="$PROJECT_DIR$/css/form.css" />
         <option value="$PROJECT_DIR$/pages/teacher/teacherIndex.html" />
         <option value="$PROJECT_DIR$/css/list.css" />
@@ -197,11 +112,8 @@
         <option value="$PROJECT_DIR$/pages/manager/addCollege.html" />
         <option value="$PROJECT_DIR$/js/login.js" />
         <option value="$PROJECT_DIR$/pages/teacher/teacherInfo.html" />
-        <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/js/manager.js" />
-        <option value="$PROJECT_DIR$/pages/student/stu_info.html" />
         <option value="$PROJECT_DIR$/js/student/stuFun.js" />
-        <option value="$PROJECT_DIR$/js/student.js" />
         <option value="$PROJECT_DIR$/pages/manager/managerInfo.html" />
         <option value="$PROJECT_DIR$/pages/teacher/addStudent.html" />
         <option value="$PROJECT_DIR$/pages/teacher/timeRollForm.html" />
@@ -212,8 +124,17 @@
         <option value="$PROJECT_DIR$/pages/teacher/addStudentCourseRollForm.html" />
         <option value="$PROJECT_DIR$/pages/teacher/changeSelectedCourseInfo.html" />
         <option value="$PROJECT_DIR$/pages/teacher/changeTimeInfo.html" />
-        <option value="$PROJECT_DIR$/js/teacher.js" />
+        <option value="$PROJECT_DIR$/pages/student/studentIndex.html" />
+        <option value="$PROJECT_DIR$/pages/manager/managerIndex.html" />
+        <option value="$PROJECT_DIR$/js/logout.js" />
+        <option value="$PROJECT_DIR$/pages/teacher/modifyPasswordRollForm.html" />
+        <option value="$PROJECT_DIR$/pages/manager/modifyPasswordRollForm.html" />
+        <option value="$PROJECT_DIR$/pages/student/modifyPasswordRollForm.html" />
         <option value="$PROJECT_DIR$/js/manager/managerIndex.js" />
+        <option value="$PROJECT_DIR$/js/student.js" />
+        <option value="$PROJECT_DIR$/js/teacher.js" />
+        <option value="$PROJECT_DIR$/js/common.js" />
+        <option value="$PROJECT_DIR$/pages/student/stu_info.html" />
       </list>
     </option>
   </component>
@@ -227,16 +148,17 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-6" />
-    <option name="y" value="-6" />
-    <option name="width" value="1292" />
-    <option name="height" value="704" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -252,6 +174,12 @@
             <path>
               <item name="selectedCourseSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="selectedCourseSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="selectedCourseSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="selectedCourseSystem" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -260,11 +188,22 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="manager" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="selectedCourseSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="selectedCourseSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="student" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="selectedCourseSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="selectedCourseSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="teacher" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -352,7 +291,8 @@
       <workItem from="1543666789459" duration="12000" />
       <workItem from="1543759977247" duration="10934000" />
       <workItem from="1543772633100" duration="220000" />
-      <workItem from="1543795444657" duration="4336000" />
+      <workItem from="1543795444657" duration="5426000" />
+      <workItem from="1543812519113" duration="3917000" />
     </task>
     <task id="LOCAL-00001" summary="one">
       <created>1541059619921</created>
@@ -375,21 +315,27 @@
       <option name="project" value="LOCAL" />
       <updated>1543317080062</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="前端基本修改完成">
+      <created>1543801908315</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1543801908315</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120634000" />
+    <option name="totallyTimeSpent" value="125641000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1040" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21701112" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21683876" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32943144" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32888147" />
@@ -442,35 +388,15 @@
     <MESSAGE value="代码合并，待完善" />
     <MESSAGE value="代码整理，待完善" />
     <MESSAGE value="基本完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本完成" />
+    <MESSAGE value="前端基本修改完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端基本修改完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="22" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pages/teacher/studentRollList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="13" column="70" selection-start-line="13" selection-start-column="70" selection-end-line="13" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/teacher/studentChoiceRollList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" column="112" selection-start-line="21" selection-start-column="112" selection-end-line="21" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/teacher/upload_container.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="75" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/teacher/teacherInfo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -494,25 +420,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/logout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/modifyPasswordRollForm.html" />
     <entry file="file://$PROJECT_DIR$/css/table.css" />
     <entry file="file://$PROJECT_DIR$/css/headCss.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-513" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/student/studentIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/form.css" />
@@ -530,13 +442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/teacher/teacherIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -569,13 +474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/student/stuInfo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -587,13 +485,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-304">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/student/stu_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -613,13 +504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/manager/managerIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-459">
-          <caret line="5" column="79" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -648,13 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="402" column="3" selection-start-line="402" selection-start-column="3" selection-end-line="402" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="56" column="75" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="56" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -733,16 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/student.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" selection-start-column="28" selection-end-column="28" />
-          <folding>
-            <element signature="e#28#874#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/manager/addCollege.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -750,72 +617,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/teacher.js">
+    <entry file="file://$PROJECT_DIR$/pages/teacher/teacherIndex.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="306" column="33" selection-start-line="306" selection-start-column="33" selection-end-line="306" selection-end-column="33" />
-          <folding>
-            <element signature="e#31#705#0" />
-            <element signature="e#787#855#0" />
-            <element signature="e#875#1868#0" />
-            <element signature="e#1911#3190#0" />
-            <element signature="e#3232#4574#0" />
-            <element signature="e#4612#5507#0" />
-            <element signature="e#5545#6637#0" />
-            <element signature="e#8730#8797#0" />
-            <element signature="e#10312#11036#0" />
-            <element signature="e#13171#13240#0" />
-            <element signature="e#13260#14148#0" />
-            <element signature="e#14195#15371#0" />
-            <element signature="e#15412#16619#0" />
-            <element signature="e#16661#17557#0" />
-            <element signature="e#17599#18552#0" />
-            <element signature="e#18585#20355#0" />
-            <element signature="e#20390#20455#0" />
-            <element signature="e#20482#22269#0" />
-            <element signature="e#22310#23740#0" />
-            <element signature="e#23783#25270#0" />
-            <element signature="e#25313#26341#0" />
-            <element signature="e#26382#27472#0" />
-            <element signature="e#27522#28643#0" />
-            <element signature="e#28692#29475#0" />
-            <element signature="e#29517#30255#0" />
-            <element signature="e#30296#31799#0" />
-            <element signature="e#31845#32751#0" />
-            <element signature="e#32795#33767#0" />
-            <element signature="e#33805#35089#0" />
-            <element signature="e#35133#36233#0" />
-            <element signature="e#36264#36990#0" />
-            <element signature="e#38606#39512#0" />
-            <element signature="e#39546#40391#0" />
-          </folding>
+        <state relative-caret-position="266">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/manager/managerIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/logout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/teacher/modifyPasswordRollForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/student/modifyPasswordRollForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/manager/modifyPasswordRollForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="74" lean-forward="true" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1102">
+          <caret line="64" column="80" lean-forward="true" selection-start-line="64" selection-start-column="80" selection-end-line="64" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/manager/managerIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="419" column="27" lean-forward="true" selection-start-line="419" selection-start-column="27" selection-end-line="419" selection-end-column="27" />
+        <state>
+          <caret column="31" selection-start-column="31" selection-end-column="31" />
           <folding>
-            <element signature="e#82#794#0" />
             <element signature="n#!!block;n#getCollege#0" />
             <element signature="n#!!block;n#checkOneCollege#0" />
             <element signature="n#!!block;n#delClass#0" />
             <element signature="n#!!block;n#addCollege#0" />
             <element signature="n#!!block;n#getManager#0" />
             <element signature="n#!!block;n#checkOneManager#0" />
+            <element signature="n#!!block;n#addManager#0" />
             <element signature="n#!!block;n#delManager#0" />
             <element signature="n#!!block;n#editManager#0" />
+            <element signature="n#!!block;n#editManager1#0" />
             <element signature="n#!!block;n#editManagerPWD#0" />
-            <element signature="n#!!block;n#getSuperManager#0" />
-            <element signature="n#!!block;n#checkOneSuperManager#0" />
             <element signature="n#!!block;n#editInfo#0" />
             <element signature="n#!!block;n#saveInfo#0" />
-            <element signature="e#19940#20832#0" />
             <element signature="n#!!block;n#manage#0" />
             <element signature="n#!!block;n#check#0" />
             <element signature="n#!!block;n#add#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/student.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="n#!!block;n#checkCourse#0" />
+            <element signature="n#!!block;n#getAllCourse#0" />
+            <element signature="n#!!block;n#checkedSelectedCourse#0" />
+            <element signature="n#!!block;n#selectedCourse#0" />
+            <element signature="n#!!block;n#withdraw#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/teacher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#787#855#0" />
+            <element signature="e#875#1868#0" />
+            <element signature="e#1911#3190#0" />
+            <element signature="e#3232#4574#0" />
+            <element signature="e#4612#5507#0" />
+            <element signature="e#5545#6637#0" />
+            <element signature="e#6668#8688#0" />
+            <element signature="e#8724#8791#0" />
+            <element signature="e#10229#10953#0" />
+            <element signature="e#10981#13047#0" />
+            <element signature="e#13088#13157#0" />
+            <element signature="e#13177#14065#0" />
+            <element signature="e#14112#15288#0" />
+            <element signature="e#15329#16536#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="40" lean-forward="true" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/student/studentIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/student/stu_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
         </state>
       </provider>
     </entry>
