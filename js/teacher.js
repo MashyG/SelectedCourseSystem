@@ -939,7 +939,7 @@ function addStudentCourseInfo() {
         error: function (data) {
             //请求失败函数内容
             //alert('查询失败!!');
-            console.log(data.result);
+            console.log(data.msg);
         }
     });
 }
@@ -972,12 +972,15 @@ function addStudentSelectedCourseInfo() {
                 contentType: 'application/json;charset=UTF-8',//解决错误码415
                 //服务器返回的数据类型
                 dataType: 'json',
-                success: function (response) {
+                success: function (data) {
                     //请求成功函数内容
-                    console.log(response.result);
-                    if (response.result == 'success') {
+                    console.log(data.result);
+                    if (data.result == 'success') {
                         alert('录入成功!');
                         studentCourseInfo();
+                    }
+                    else{
+                        alert(data.msg);
                     }
                 },
                 error: function (data) {
