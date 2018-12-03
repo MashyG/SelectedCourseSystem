@@ -54,10 +54,11 @@ function getCollege() {
                 $(".tbBody").append(tbBody);
             });
         },
-        error:function(jqXHR){
+        /* error:function(jqXHR){
             //请求失败函数内容
+            alert("12asfdg");
             alert('请求失败!!');
-        }
+        } */
     });
 }
 //查询个别班级信息
@@ -168,11 +169,10 @@ function addCollege() {
             console.log(data.result);
             if(data.result == 'success'){
                 alert('录入成功!');
-                $('div.all_info').load("college.html #content");
-                $('#tbBody').html("");
-                getCollege();
+                window.close();
             }
             else{
+                alert("test");
                 alert(data.msg);
             }
         },
@@ -280,7 +280,7 @@ function addManager() {
                 console.log(data.result);
                 if(data.result == 'success'){
                     alert('录入成功!');
-                    $('div.all_info').load("addManagerForm.html");
+                    window.close();
                 }
             },
             error : function(data){
@@ -416,7 +416,7 @@ function changeManagerPWD1() {
                 //请求方式
                 type: 'PUT',
                 //发送请求的地址
-                url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager/modifyPassword?username=' + managerId + '&password=' + $('#newPWD1').va
+                url: 'http://39.108.57.12:8080/CourseSystem/superManager/manager/modifyPassword?username=' + managerId + '&password=' + $('#newPWD1').var(),
                 xhrFields:{
                     withCredentials:true
                 },
@@ -553,10 +553,10 @@ function addSuperManager() {
                 console.log(data.result);
                 if (data.result == 'success') {
                     alert('录入成功!');
-                    self.location.load = -1;
+                    window.close();
                 }
                 else {
-                    alert(data.msg);
+                    // alert(data.msg);
                 }
             },
             error: function (data) {
