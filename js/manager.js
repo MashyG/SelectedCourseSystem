@@ -137,6 +137,7 @@ $(document).ready(function () {
             }
         });
     });
+/*
     //添加班级信息
     $('#logClass').click(function () {
         $('div.all_info').load("collegeRollForm.html");
@@ -175,6 +176,7 @@ $(document).ready(function () {
             }
         });
     });
+*/
 
 
     //管理员管理
@@ -355,7 +357,7 @@ $(document).ready(function () {
             }
         });
     });
-    //添加超级管理员信息(创建人为空？？)
+    //添加超级管理员信息
     $('#logManager_info').click(function () {
         $('div.all_info').load("managerRollForm.html");
     });
@@ -399,48 +401,6 @@ $(document).ready(function () {
     });
 
 });
-//获取id，并写入
-var loc = window.location.href;
-var n2 = loc.indexOf("=");//取得=号的位置
-var n3 = loc.indexOf("&");//取得&号的位置
-var name = loc.substr(n2+1, n3-n2-1);//从=号后面且&号之前的内容
-
-//查询超级管理员个人信息
-function superManager_info(){
-    $('div.all_info').load("manager_info.html");
-    $.ajax({
-        //请求方式
-        type: 'GET',
-        //发送请求的地址
-        url: "http://39.108.57.12:8080/CourseSystem/superManager/self" ,
-        //url: "http://192.168.137.1:8080/CourseSystem/superManager/self" ,
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        //服务器返回的数据类型
-        dataType: 'json',
-        success:function(data) {
-            //请求成功函数内容
-            //alert('请求成功!');
-            console.log(data.result);
-            $.each(data.result, function(i, n) {
-                let tbody = '';
-                tbody += "<tr><th>学号</th> <td>" + n.supId + "</td></tr>" +
-                    "<tr><th>姓名</th> <td>" + n.supName + "</td></tr>" +
-                    "<tr><th>性别</th> <td>" + n.sex + "</td></tr>" +
-                    "<tr><th>联系电话</th> <td>" + n.phone + "</td></tr>" +
-                    "<tr><th>创建者</th> <td>" + n.createBy + "</td></tr>" +
-                    "<tr><th>创建时间</th> <td>" + n.createDate + "</td></tr>";
-                $('#table').append(tbody);
-            })
-        },
-        error:function(jqXHR){
-            //请求失败函数内容
-            alert('请求失败!!');
-        }
-    });
-}
 
 
 var managerId;

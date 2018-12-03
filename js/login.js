@@ -71,13 +71,13 @@ $(document).ready(function () {
                         self.location.href = 'manager/managerIndex.html?'+ 'username=' + userName + '&password=';
                     }
                     else{
-                        alert('用户或密码错误，请重新输入！');
+                        alert('用户名或密码错误，请重新输入！');
                     } 
                 },
                 error:function(e){
-                    console.log("error---" + JSON.stringify((e)));
                     //请求失败函数内容
-                    alert('POST 请求失败！');
+                    console.log("error---" + JSON.stringify((e)));
+                    alert('用户名或密码错误，请重新输入！');
                 }
             });
         }

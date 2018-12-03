@@ -1,14 +1,30 @@
-$(document).ready(function(){
-    studentInfo();
-})
-//获取id，并写入
-var loc = window.location.href;
-var n2 = loc.indexOf("=");//取得=号的位置
-var n3 = loc.indexOf("&");//取得&号的位置
-var name = loc.substr(n2 + 1, n3 - n2 - 1);//从=号后面且&号之前的内容
 
 $(document).ready(function () {
-    $('#xxxName').html(name);
+    studentInfo();
+    var storage = window.localStorage;
+    $.ajax({
+        //请求方式
+        type: 'GET',
+        //发送请求的地址
+        url: "http://39.108.57.12:8080/CourseSystem/manager/self?manId=" + storage["user"]   ,
+        xhrFields:{
+            withCredentials:true
+        },
+        crossDomain:true,
+        //服务器返回的数据类型
+        dataType: 'json',
+        success:function(data) {
+            //请求成功函数内容
+            //alert('请求成功!');
+            console.log(data.result);
+            $.each(data.result, function(i, n) {
+                $('#xxxName').html(n.manName);
+            });
+        },
+        error:function(){
+            //请求失败函数内容
+        }
+    });
 });
 
 var s_id, courseId, studentId, time_id;
@@ -78,7 +94,8 @@ function studentInfo() {
                 tbBody += "<tr><td>" + n.stuId + "</td>" + "<td>" + n.stuName + "</td>" + "<td>" + n.sex + "</td>"
                     + "<td>" + n.graName + "</td>" + "<td>" + n.acaName + "</td>" + "<td>" + n.proName + "</td>" +
                     "<td>" + n.claName + "</td>" + "<td>" + n.phone + "</td>" + "<td>" + n.createDate + "</td><td>" +
-                    "<a id='withdraw' onclick='delStudent(this," + n.stuId + ")'>删除</a> <a id='select' target='_parent' onclick='editStudent(" + n.stuId + ")'>修改</a></td></tr>";
+                    "<a id='withdraw' onclick='delStudent(this," + n.stuId + ")'>删除</a>" +
+                    " <a id='select' target='_parent' onclick='editStudent(" + n.stuId + ")'>修改</a></td></tr>";
                 $(".tbBody").append(tbBody);
             });
         },
@@ -111,7 +128,8 @@ function checkedStudentInfo() {
                 tbBody += "<tr><td>" + n.stuId + "</td>" + "<td>" + n.stuName + "</td>" + "<td>" + n.sex + "</td>"
                     + "<td>" + n.graName + "</td>" + "<td>" + n.acaName + "</td>" + "<td>" + n.proName + "</td>" +
                     "<td>" + n.claName + "</td>" + "<td>" + n.phone + "</td>" + "<td>" + n.createDate + "</td><td>" +
-                    "<a id='withdraw' onclick='delStudent(this," + n.stuId + ")'>删除</a> <a id='select' target='_parent' onclick='editStudent(" + n.stuId + ")'>修改</a></td></tr>";
+                    "<a id='withdraw' onclick='delStudent(this," + n.stuId + ")'>删除</a>" +
+                    " <a id='select' target='_parent' onclick='editStudent(" + n.stuId + ")'>修改</a></td></tr>";
                 $(".tbBody").append(tbBody);
             });
         },
@@ -195,7 +213,35 @@ function editStudent(stuId) {
 function changeStudentInfo1() {
     let studentPhone = $('#phone').val();
     let reg = /^1[3|4|5|7|8][0-9]{9}$/;     //联系号码的正则表达式
-    if(reg.test(studentPhone)){
+    if($('#stuName').val() == ''){
+        alert("学生姓名不能为空！");
+        return;
+    }
+    if($('#sex').val() == ''){
+        alert("性别不能为空！");
+        return;
+    }
+    if($('#graName').val() == ''){
+        alert("年级不能为空！");
+        return;
+    }
+    if($('#acaName').val() == ''){
+        alert("学院不能为空！");
+        return;
+    }
+    if($('#proName').val() == ''){
+        alert("专业不能为空！");
+        return;
+    }
+    if($('#claName').val() == ''){
+        alert("班级不能为空！");
+        return;
+    }
+    if($('#phone').val() == ''){
+        alert("联系电话不能为空！");
+        return;
+    }
+    else if(reg.test(studentPhone)){
         $.ajax({
             //请求方式
             type: 'PUT',
@@ -214,7 +260,6 @@ function changeStudentInfo1() {
                 proName : $('#proName').val(),
                 claName :  $('#claName').val(),
                 phone :  $('#phone').val(),
-                createDate :  $('#createDate').val()
             }),
             contentType: 'application/json;charset=UTF-8',//解决错误码415
             //服务器返回的数据类型
@@ -238,6 +283,51 @@ function changeStudentInfo1() {
     }
     else{
         alert("联系号码有误，请重新输入");
+    }
+}
+//修改学生密码
+function editStudentPWD() {
+    $('div.all_info').load('changeStudentPWD.html .list-body');
+}
+function changeStudentPWD1() {
+    if($('#newPWD1').val() == '' || $('#newPWD2').val() == ''){
+        alert("新密码不能为空！");
+        return;
+    }
+    if($('#newPWD1').val() != '' && $('#newPWD2').val() != ''){
+        if($('#newPWD1').val() == $('#newPWD2').val()){
+            $.ajax({
+                //请求方式
+                type: 'PUT',
+                //发送请求的地址
+                url: 'http://39.108.57.12:8080/CourseSystem/manager/student/modifyPassword?username=' + studentId + '&password=' + $('#newPWD1').val() ,
+                xhrFields:{
+                    withCredentials:true
+                },
+                crossDomain:true,
+                contentType: 'application/json;charset=UTF-8',//解决错误码415
+                //服务器返回的数据类型
+                dataType: 'json',
+                success:function(data) {
+                    //请求成功函数内容
+                    console.log("test----" + JSON.stringify(data));
+                    if(data.result == 'success'){
+                        alert('修改成功!');
+                        studentInfo();
+                    }
+                    else{
+                        alert(data.msg);
+                    }
+                },
+                error:function(data){
+                    //请求失败函数内容
+                    console.log(data.msg);
+                }
+            });
+        }
+        else{
+            alert("两次输入的新密码不一样，请重新输入！");
+        }
     }
 }
 //添加学生信息
@@ -381,6 +471,7 @@ function saveFile(){
     });
 }
 
+
 //课程管理
 
 //查询所有课程信息
@@ -518,38 +609,61 @@ function editAllCourse(couId) {
     });
 }
 function changeAllCourseInfo1() {
-    $.ajax({
-        //请求方式
-        type: 'PUT',
-        //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/manager/course',
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        data: JSON.stringify({
-            "couId": courseId,
-            "couName": $('#couName').val(),
-            "credit": $('#credit').val(),
-            "type": $('#type').val(),
-            "nature": $('#nature').val(),
-            "necessity": $('#necessity').val()
-        }),
-        contentType: 'application/json;charset=UTF-8',//解决错误码415
-        //服务器返回的数据类型
-        dataType: 'json',
-        success: function (data) {
-            //请求成功函数内容
-            if (data.result == 'success') {
-                alert('修改成功!');
-                allCourseInfo();
-            }
-        },
-        error: function (data) {
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
+    if($('#couName').val() == ''){
+        alert("课程名称不能为空！");
+        return;
+    }
+    if($('#credit').val() == ''){
+        alert("学分不能为空！");
+        return;
+    }
+    if($('#type').val() == ''){
+        alert("类型不能为空！");
+        return;
+    }
+    if($('#nature').val() == ''){
+        alert("性质不能为空！");
+        return;
+    }
+    if($('#necessity').val() == ''){
+        alert("是否必选不能为空！");
+        return;
+    }
+    if($('#couName').val() != '' && $('#credit').val() != '' && $('#type').val() != ''
+        && $('#nature').val() != '' && $('#necessity').val() != '') {
+            $.ajax({
+                //请求方式
+                type: 'PUT',
+                //发送请求的地址
+                url: 'http://39.108.57.12:8080/CourseSystem/manager/course',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                data: JSON.stringify({
+                    "couId": courseId,
+                    "couName": $('#couName').val(),
+                    "credit": $('#credit').val(),
+                    "type": $('#type').val(),
+                    "nature": $('#nature').val(),
+                    "necessity": $('#necessity').val()
+                }),
+                contentType: 'application/json;charset=UTF-8',//解决错误码415
+                //服务器返回的数据类型
+                dataType: 'json',
+                success: function (data) {
+                    //请求成功函数内容
+                    if (data.result == 'success') {
+                        alert('修改成功!');
+                        allCourseInfo();
+                    }
+                },
+                error: function (data) {
+                    //请求失败函数内容
+                    console.log(data.result);
+                }
+            });
+    }
 }
 //添加课程信息
 function addCourseInfo() {
@@ -558,18 +672,23 @@ function addCourseInfo() {
 function courseInfoRoll() {
     if($('#couName').val() == ''){
         alert("课程名称不能为空！");
+        return;
     }
     if($('#credit').val() == ''){
         alert("学分不能为空！");
+        return;
     }
     if($('#type').val() == ''){
         alert("类型不能为空！");
+        return;
     }
     if($('#nature').val() == ''){
         alert("性质不能为空！");
+        return;
     }
     if($('#necessity').val() == ''){
-        alert("必选不能为空！");
+        alert("是否必选不能为空！");
+        return;
     }
     if($('#couName').val() != '' && $('#credit').val() != '' && $('#type').val() != ''
         && $('#nature').val() != '' && $('#necessity').val() != '' ){
@@ -849,37 +968,48 @@ function addStudentCourseInfo() {
     });
 }
 function addStudentSelectedCourseInfo() {
-    $.ajax({
-        //请求方式
-        type: 'POST',
-        //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/manager/StuCourse',
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        //数据
-        data: JSON.stringify({  //解决错误码400
-            'graName': $('#graName').val(),
-            'proName': $('#proName').val(),
-            'couName': $('#couName').val()
-        }),
-        contentType: 'application/json;charset=UTF-8',//解决错误码415
-        //服务器返回的数据类型
-        dataType: 'json',
-        success: function (response) {
-            //请求成功函数内容
-            console.log(response.result);
-            if (response.result == 'success') {
-                alert('录入成功!');
-                studentCourseInfo();
-            }
-        },
-        error: function (data) {
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
+    if($('#graName').val() == ''){
+        alert("年级不能为空！");
+    }
+    if($('#proName').val() == ''){
+        alert("专业不能为空！");
+    }
+    if($('#couName').val() == ''){
+        alert("课程名称不能为空！");
+    }
+    if($('#graName').val() != '' && $('#proName').val() != '' && $('#couName').val() != ''){
+            $.ajax({
+                //请求方式
+                type: 'POST',
+                //发送请求的地址
+                url: 'http://39.108.57.12:8080/CourseSystem/manager/StuCourse',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                //数据
+                data: JSON.stringify({  //解决错误码400
+                    'graName': $('#graName').val(),
+                    'proName': $('#proName').val(),
+                    'couName': $('#couName').val()
+                }),
+                contentType: 'application/json;charset=UTF-8',//解决错误码415
+                //服务器返回的数据类型
+                dataType: 'json',
+                success: function (response) {
+                    //请求成功函数内容
+                    console.log(response.result);
+                    if (response.result == 'success') {
+                        alert('录入成功!');
+                        studentCourseInfo();
+                    }
+                },
+                error: function (data) {
+                    //请求失败函数内容
+                    console.log(data.result);
+                }
+            });
+    }
 }
 //删除可选课程信息
 function delSelectedCourse(i, id) {
@@ -919,66 +1049,91 @@ function delSelectedCourse(i, id) {
 function editSelectedCourse(id) {
     s_id = id;
     $('div.all_info').load('changeSelectedCourseInfo.html .list-body');
-    $.ajax({
-        //请求方式
-        type: 'GET',
-        //发送请求的地址
-        url: "http://39.108.57.12:8080/CourseSystem/manager/StuCourse?id=" + s_id  ,
-        xhrFields:{
-            withCredentials:true
-        },
-        crossDomain:true,
-        //服务器返回的数据类型
-        dataType: 'json',
-        success:function(data) {
-            //请求成功函数内容
-            //alert('请求成功!');
-            console.log(data.result);
-            $.each(data.result, function (i, n) {
-                $('#couName').val(n.couName);
-                $('#graName').val(n.graName);
-                $('#proName').val(n.proName);
-            });
-        },
-        error: function (data) {
-            //请求失败函数内容
-            //alert('查询失败!!');
-            console.log(data.result);
-        }
-    });
+    if($('#graName').val() == ''){
+        alert("年级不能为空！");
+        return;
+    }
+    if($('#proName').val() == ''){
+        alert("专业不能为空！");
+        return;
+    }
+    if($('#couName').val() == ''){
+        alert("课程名称不能为空！");
+        return;
+    }
+    if($('#graName').val() != '' && $('#proName').val() != '' && $('#couName').val() != '') {
+        $.ajax({
+            //请求方式
+            type: 'GET',
+            //发送请求的地址
+            url: "http://39.108.57.12:8080/CourseSystem/manager/StuCourse?id=" + s_id,
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            //服务器返回的数据类型
+            dataType: 'json',
+            success: function (data) {
+                //请求成功函数内容
+                //alert('请求成功!');
+                console.log(data.result);
+                $.each(data.result, function (i, n) {
+                    $('#couName').val(n.couName);
+                    $('#graName').val(n.graName);
+                    $('#proName').val(n.proName);
+                });
+            },
+            error: function (data) {
+                //请求失败函数内容
+                //alert('查询失败!!');
+                console.log(data.result);
+            }
+        });
+    }
 }
 function changeSelectedCourseInfo1() {
-    $.ajax({
-        //请求方式
-        type: 'PUT',
-        //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/manager/StuCourse',
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        data: JSON.stringify({
-            "id": s_id,
-            "couName": $('#couName').val(),
-            "graName": $('#graName').val(),
-            "proName": $('#proName').val()
-        }),
-        contentType: 'application/json;charset=UTF-8',//解决错误码415
-        //服务器返回的数据类型
-        dataType: 'json',
-        success: function (data) {
-            //请求成功函数内容
-            console.log(data.result);
-            if (data.result == 'success') {
-                alert('修改成功!');
-                studentCourseInfo();
+    if($('#couName').val() == ''){
+        alert("课程名称不能为空！");
+    }
+    if($('#graName').val() == ''){
+        alert("年级不能为空！");
+    }
+    if($('#proName').val() == ''){
+        alert("专业不能为空！");
+    }
+    if($('#couName').val() != '' && $('#graName').val() != '' && $('#proName').val() != '') {
+        $.ajax({
+            //请求方式
+            type: 'PUT',
+            //发送请求的地址
+            url: 'http://39.108.57.12:8080/CourseSystem/manager/StuCourse',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            data: JSON.stringify({
+                "id": s_id,
+                "couName": $('#couName').val(),
+                "graName": $('#graName').val(),
+                "proName": $('#proName').val()
+            }),
+            contentType: 'application/json;charset=UTF-8',//解决错误码415
+            //服务器返回的数据类型
+            dataType: 'json',
+            success: function (data) {
+                //请求成功函数内容
+                console.log(data.result);
+                if (data.result == 'success') {
+                    alert('修改成功!');
+                    studentCourseInfo();
+                }
+            },
+            error: function (data) {
+                //请求失败函数内容
+                console.log(data.result);
             }
-        },
-        error: function (data) {
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
+        });
+    }
 }
 
 
@@ -1166,36 +1321,54 @@ function editTime(timeId) {
     });
 }
 function changeTimeInfo1() {
-    $.ajax({
-        //请求方式
-        type: 'PUT',
-        //发送请求的地址
-        url: 'http://39.108.57.12:8080/CourseSystem/manager/time',
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        data: JSON.stringify({
-            "timeId": time_id,
-            "graName": $('#graName').val(),
-            "start": $('#start').val(),
-            "end": $('#end').val(),
-            "type": $('#type').val()
-        }),
-        contentType: 'application/json;charset=UTF-8',//解决错误码415
-        //服务器返回的数据类型
-        dataType: 'json',
-        success: function (data) {
-            //请求成功函数内容
-            console.log(data.result);
-            if (data.result == 'success') {
-                alert('修改成功!');
-                checkedTimeInfo();
+    if($('#graName').val() == ''){
+        alert("年级不能为空！");
+        return;
+    }
+    if($('#start').val() == ''){
+        alert("开始时间不能为空！");
+        return;
+    }
+    if($('#end').val() == ''){
+        alert("结束时间不能为空！");
+        return;
+    }
+    if($('#type').val() == ''){
+        alert("类型不能为空！");
+        return;
+    }
+    if($('#graName').val() != '' && $('#start').val() != '' && $('#end').val() != '' && $('#type').val() != '') {
+        $.ajax({
+            //请求方式
+            type: 'PUT',
+            //发送请求的地址
+            url: 'http://39.108.57.12:8080/CourseSystem/manager/time',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            data: JSON.stringify({
+                "timeId": time_id,
+                "graName": $('#graName').val(),
+                "start": $('#start').val(),
+                "end": $('#end').val(),
+                "type": $('#type').val()
+            }),
+            contentType: 'application/json;charset=UTF-8',//解决错误码415
+            //服务器返回的数据类型
+            dataType: 'json',
+            success: function (data) {
+                //请求成功函数内容
+                console.log(data.result);
+                if (data.result == 'success') {
+                    alert('修改成功!');
+                    checkedTimeInfo();
+                }
+            },
+            error: function (data) {
+                //请求失败函数内容
+                console.log(data.result);
             }
-        },
-        error: function (data) {
-            //请求失败函数内容
-            console.log(data.result);
-        }
-    });
+        });
+    }
 }
